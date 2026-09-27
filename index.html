@@ -160,6 +160,26 @@
       .roulette-spin { width: 100%; }
       .roulette-note { padding: 0 16px 18px; }
     }
+    .project .plain-note + .text-link { margin-top: 8px; }
+    .nback-dialog { width: min(560px, calc(100% - 24px)); }
+    .nback-body { padding: 4px 25px 25px; }
+    .nback-instructions { margin: 0 0 16px; color: #526570; font-size: .95rem; }
+    .nback-stage { display: grid; place-items: center; min-height: 160px; margin-bottom: 13px; border-radius: 10px; background: white; border: 1px solid #d8e2e7; }
+    .nback-digit { font-size: clamp(4rem, 13vw, 6rem); font-weight: 650; line-height: 1; }
+    .nback-progress { margin: 0 0 13px; color: #526570; font-size: .86rem; }
+    .nback-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .nback-actions button { min-height: 43px; padding: 9px 15px; border: 0; border-radius: 5px; font: 700 .9rem var(--sans); cursor: pointer; }
+    .nback-start { background: var(--green); color: white; }
+    .nback-match { background: var(--yellow); color: var(--ink); }
+    .nback-actions button:disabled { opacity: .5; cursor: not-allowed; }
+    .nback-result { min-height: 2.5em; margin: 14px 0 0; font-weight: 650; }
+    .nback-note { margin: 0; padding: 0 25px 24px; color: #526570; font-size: .85rem; }
+    @media (max-width: 540px) {
+      .nback-body { padding: 4px 16px 17px; }
+      .nback-stage { min-height: 130px; }
+      .nback-actions button { flex: 1 1 100%; }
+      .nback-note { padding: 0 16px 18px; }
+    }
   </style>
 </head>
 <body>
@@ -219,6 +239,20 @@
             <a class="text-link" href="https://hdl.handle.net/10481/115714" target="_blank" rel="noreferrer">Preprint del estudio ↗</a>
             <button class="demo-open" id="open-roulette-demo" type="button" aria-haspopup="dialog" aria-controls="roulette-demo">Probar tres tiradas ↗</button>
           </article>
+          <article class="project">
+            <div class="project-icon" aria-hidden="true">◉</div>
+            <div class="project-label">Tesis doctoral · Estudio prerregistrado</div>
+            <h3>Provocar el deseo de jugar para entenderlo</h3>
+            <p>En una parte central de mi tesis, inducimos craving en personas que jugaban a videojuegos o apostaban y observamos cómo cambiaban el deseo de jugar y la compulsividad momentánea.</p>
+            <a class="text-link" href="https://hdl.handle.net/10481/107411" target="_blank" rel="noreferrer">Leer el preprint <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="project">
+            <div class="project-icon" aria-hidden="true">⌛</div>
+            <div class="project-label">Seguimiento del craving · En curso</div>
+            <h3>¿Y qué ocurre durante la hora siguiente?</h3>
+            <p>Estudiamos cómo evoluciona el craving inducido durante una hora: un grupo ve un documental y otro realiza una tarea de memoria de trabajo 2-back.</p>
+            <button class="demo-open" id="open-nback-demo" type="button" aria-haspopup="dialog" aria-controls="nback-demo">Probar la 2-back (15 segundos) ↗</button>
+          </article>
           <article class="project data-focus">
             <div class="project-icon" aria-hidden="true">∑</div>
             <div class="project-label">Análisis de datos · Métodos</div>
@@ -232,6 +266,7 @@
             <h3>Abrir el proceso, no solo el resultado</h3>
             <p>Mi compromiso es hacer una investigación que otros puedan examinar y aprovechar: métodos claros, prerregistros y materiales compartidos.</p>
             <span class="plain-note">Transparencia · acceso abierto · reutilización</span>
+            <a class="text-link" href="https://digibug.ugr.es/browse?authority=5582&amp;type=author" target="_blank" rel="noreferrer">Ver trabajos en acceso abierto ↗</a>
           </article>
           <article class="project">
             <div class="project-icon" aria-hidden="true">↔</div>
@@ -344,7 +379,6 @@
           <a class="text-link" href="https://www.researchgate.net/profile/Jose-Lopez-Guerrero" target="_blank" rel="noreferrer">ResearchGate ↗</a>
           <a class="text-link" href="https://www.linkedin.com/in/jose-l%C3%B3pez-guerrero-12574231/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
           <a class="text-link" href="https://scholar.google.es/citations?user=Dj1fPPUAAAAJ&amp;hl=es" target="_blank" rel="noreferrer">Google Scholar ↗</a>
-          <a class="text-link" href="https://osf.io/profile" target="_blank" rel="noreferrer">OSF ↗</a>
           <a class="text-link" href="https://digibug.ugr.es/browse?authority=5582&amp;type=author" target="_blank" rel="noreferrer">Publicaciones en Digibug ↗</a>
         </div>
       </section>
@@ -377,6 +411,27 @@
       <p class="roulette-result" id="roulette-result" role="status" aria-live="polite">El número ganador es el señalado por el triángulo cian.</p>
     </div>
     <p class="roulette-note">Recreación abreviada basada en el código del estudio: muestra tres tipos de desenlace, sin reproducir sus proporciones ni recoger datos. Los créditos son ficticios.</p>
+  </dialog>
+  <dialog class="roulette-dialog nback-dialog" id="nback-demo" aria-labelledby="nback-demo-title">
+    <div class="roulette-head">
+      <div>
+        <div class="project-label">Muestra interactiva · Memoria de trabajo</div>
+        <h2 id="nback-demo-title">La tarea 2-back, en 15 segundos</h2>
+        <p>Una versión breve para entender cómo era la tarea.</p>
+      </div>
+      <button class="roulette-close" id="close-nback-demo" type="button" aria-label="Cerrar demostración">×</button>
+    </div>
+    <div class="nback-body">
+      <p class="nback-instructions">Verás dígitos del 1 al 3. Pulsa la barra espaciadora —o el botón— cuando el dígito sea igual al que apareció <strong>dos posiciones antes</strong>.</p>
+      <div class="nback-stage"><div class="nback-digit" id="nback-digit" aria-live="polite">—</div></div>
+      <p class="nback-progress" id="nback-progress">Ocho dígitos, sin registro de respuestas.</p>
+      <div class="nback-actions">
+        <button class="nback-start" id="nback-start" type="button">Empezar muestra</button>
+        <button class="nback-match" id="nback-match" type="button" disabled>Coincide con el de hace dos</button>
+      </div>
+      <p class="nback-result" id="nback-result" role="status" aria-live="polite">Prueba a seguir la secuencia.</p>
+    </div>
+    <p class="nback-note">Recreación abreviada basada en la tarea del estudio: ritmo acelerado, secuencia fija y sin preguntas de craving, identificadores ni recogida de datos. No mide tu rendimiento.</p>
   </dialog>
   <script>
   (() => {
@@ -525,7 +580,103 @@
     drawWheel();
   })();
   </script>
+  <script>
+  (() => {
+    const dialog = document.getElementById("nback-demo");
+    const digit = document.getElementById("nback-digit");
+    const progress = document.getElementById("nback-progress");
+    const result = document.getElementById("nback-result");
+    const startButton = document.getElementById("nback-start");
+    const matchButton = document.getElementById("nback-match");
+    const sequence = [1, 2, 1, 3, 2, 3, 1, 2];
+    let index = 0;
+    let responses = 0;
+    let correct = 0;
+    let phase = "idle";
+    let timers = [];
+    function schedule(fn, delay) {
+      const timer = setTimeout(fn, delay);
+      timers.push(timer);
+    }
+    function stop() {
+      timers.forEach(clearTimeout);
+      timers = [];
+      phase = "idle";
+      matchButton.disabled = true;
+      startButton.disabled = false;
+    }
+    function respond() {
+      if ((phase !== "digit" && phase !== "blank") || responses) return;
+      responses = 1;
+      matchButton.disabled = true;
+    }
+    function next() {
+      if (index >= sequence.length) {
+        phase = "done";
+        digit.textContent = "✓";
+        progress.textContent = "Muestra completada";
+        result.textContent = "Acertaste " + correct + " de " + sequence.length + " decisiones. Esta muestra no es una evaluación.";
+        startButton.disabled = false;
+        startButton.textContent = "Repetir muestra";
+        matchButton.disabled = true;
+        return;
+      }
+      responses = 0;
+      phase = "digit";
+      digit.textContent = String(sequence[index]);
+      progress.textContent = "Dígito " + (index + 1) + " de " + sequence.length;
+      result.textContent = "¿Es igual al de dos posiciones antes?";
+      matchButton.disabled = false;
+      schedule(() => {
+        phase = "blank";
+        digit.textContent = "·";
+      }, 850);
+      schedule(() => {
+        phase = "feedback";
+        matchButton.disabled = true;
+        const target = index >= 2 && sequence[index] === sequence[index - 2];
+        const right = Boolean(responses) === target;
+        if (right) correct++;
+        digit.textContent = right ? "●" : "○";
+        digit.style.color = right ? "#205c68" : "#ca6b4e";
+        result.textContent = right ? "Correcto" : (target ? "Coincidía con el de hace dos" : "No coincidía con el de hace dos");
+        index++;
+        schedule(() => {
+          digit.style.color = "";
+          next();
+        }, 300);
+      }, 1500);
+    }
+    function start() {
+      stop();
+      index = 0;
+      correct = 0;
+      startButton.disabled = true;
+      next();
+    }
+    document.getElementById("open-nback-demo").addEventListener("click", () => {
+      stop();
+      digit.textContent = "—";
+      digit.style.color = "";
+      progress.textContent = "Ocho dígitos, sin registro de respuestas.";
+      result.textContent = "Prueba a seguir la secuencia.";
+      startButton.textContent = "Empezar muestra";
+      dialog.showModal();
+    });
+    document.getElementById("close-nback-demo").addEventListener("click", () => dialog.close());
+    dialog.addEventListener("close", stop);
+    startButton.addEventListener("click", start);
+    matchButton.addEventListener("click", respond);
+    document.addEventListener("keydown", (event) => {
+      if (dialog.open && event.code === "Space" && (phase === "digit" || phase === "blank")) {
+        event.preventDefault();
+        respond();
+      }
+    });
+  })();
+  </script>
 </body>
 </html>
+
 
 
