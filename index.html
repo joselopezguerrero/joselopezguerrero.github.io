@@ -192,6 +192,15 @@
     .mobility-year { color: var(--green); font-size: .73rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
     .mobility-card h4 { margin: 13px 0 9px; font: 400 1.65rem var(--serif); }
     .mobility-card p { margin: 0; color: var(--muted); font-size: .87rem; line-height: 1.55; overflow-wrap: anywhere; }
+    .scientific-service { margin-top: 36px; padding: 24px; border: 1px solid var(--line); border-radius: 8px; background: var(--card); }
+    .scientific-service h3 { margin: 9px 0 12px; font: 400 clamp(1.5rem, 3vw, 2rem)/1.15 var(--serif); letter-spacing: -.025em; }
+    .scientific-service p { max-width: 760px; margin-bottom: 14px; color: var(--muted); font-size: .91rem; }
+    .reviewer-journals { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+    .reviewer-journals li { min-width: 0; max-width: 100%; padding: 7px 11px; border: 1px solid var(--line); border-radius: 5px; color: var(--ink); font-size: .84rem; overflow-wrap: anywhere; }
+    .reviewer-more { margin-top: 15px; }
+    .reviewer-more summary { width: fit-content; max-width: 100%; color: var(--green); font-size: .86rem; font-weight: 700; cursor: pointer; }
+    .reviewer-more summary:focus-visible { outline: 2px solid var(--orange); outline-offset: 4px; }
+    .reviewer-more .reviewer-journals { margin-top: 12px; }
     .conference-section { padding: 68px 0 78px; border-top: 1px solid var(--line); }
     .conference-section .section-head p { max-width: 465px; color: var(--muted); font-size: .95rem; }
     .conference-map-shell { overflow: hidden; border: 1px solid var(--line); border-radius: 10px; background: var(--card); }
@@ -399,6 +408,33 @@
             <article class="mobility-card"><span class="mobility-year">2026 · Suecia</span><h4>Gotemburgo</h4><p>Department of Psychology (Organisation, Health and Addiction)<br>University of Gothenburg</p></article>
           </div>
         </div>
+        <aside class="scientific-service" aria-labelledby="scientific-service-title">
+          <div class="kicker">Revisión por pares</div>
+          <h3 id="scientific-service-title">Servicio a la comunidad científica</h3>
+          <p>También contribuyo a la investigación revisando el trabajo de otros equipos. La revisión por pares es una forma de aportar una mirada crítica y constructiva sobre los métodos, los resultados y su interpretación.</p>
+          <p>He revisado manuscritos para revistas como:</p>
+          <ul class="reviewer-journals" aria-label="Selección de revistas">
+            <li>Journal of Behavioral Addictions</li>
+            <li>International Gambling Studies</li>
+            <li>Addictive Behaviors</li>
+            <li>PLOS ONE</li>
+          </ul>
+          <details class="reviewer-more">
+            <summary>Otras revistas</summary>
+            <ul class="reviewer-journals" aria-label="Otras revistas para las que he realizado revisiones">
+              <li>Acta Psychologica</li>
+              <li>Addiction Science &amp; Clinical Practice</li>
+              <li>Addictive Behaviors Reports</li>
+              <li>Brain and Behavior</li>
+              <li>Comprehensive Psychiatry</li>
+              <li>Discover Psychology</li>
+              <li>International Journal of Mental Health Promotion</li>
+              <li>Journal of Psychopathology and Clinical Science</li>
+              <li>Substance Use and Addiction Journal</li>
+              <li>Substance Use &amp; Misuse</li>
+            </ul>
+          </details>
+        </aside>
       </section>
 
       <section class="conference-section" id="congresos">
@@ -884,4 +920,4 @@
 
 
 
-
+ 
