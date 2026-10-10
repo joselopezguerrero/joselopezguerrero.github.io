@@ -389,13 +389,27 @@
     @media (max-width: 800px) { .skill-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
     @media (max-width: 540px) { .skill-grid { grid-template-columns: minmax(0, 1fr); gap: 10px; } }
 
+
+    /* Selector de idioma: ambos textos se incluyen en este único archivo. */
+    .topbar { gap: 18px; }
+    .header-controls { display: flex; align-items: center; justify-content: flex-end; gap: 18px; min-width: 0; }
+    .language-switch { display: inline-flex; flex: 0 0 auto; padding: 3px; border: 1px solid #9bb7c3; border-radius: 999px; background: #f0f6f9; }
+    .language-button { border: 0; border-radius: 999px; background: transparent; padding: 7px 10px; font: 700 .75rem var(--sans); color: var(--green); cursor: pointer; }
+    .language-button[aria-pressed="true"] { color: #fff; background: var(--green); }
+    @media (max-width: 1100px) { .header-controls { flex-direction: column; align-items: flex-end; gap: 10px; } }
+    @media (max-width: 800px) {
+      .topbar { flex-direction: column; align-items: flex-start; }
+      .header-controls { width: 100%; align-items: flex-start; gap: 14px; }
+      .header-controls nav { width: 100%; justify-content: flex-start; }
+    }
+
   </style>
 </head>
 <body>
   <div class="wrap">
     <header class="topbar">
       <a class="brand" href="#inicio" aria-label="Jose López Guerrero, inicio"><span class="brand-mark">j</span> Jose López Guerrero</a>
-      <nav aria-label="Navegación principal"><a href="#proyectos">Ciencia</a><a href="#divulgacion">Divulgación</a><a href="#trayectoria">Trayectoria</a><a href="#formacion">Formación</a><a href="#curiosidades">Curiosidades</a><a href="#contacto">Contacto</a></nav>
+      <div class="header-controls"><nav aria-label="Navegación principal"><a href="#proyectos">Ciencia</a><a href="#divulgacion">Divulgación</a><a href="#trayectoria">Trayectoria</a><a href="#formacion">Formación</a><a href="#curiosidades">Curiosidades</a><a href="#contacto">Contacto</a></nav><div class="language-switch" role="group" aria-label="Idioma de la página" hidden><button class="language-button" type="button" data-language="es" aria-pressed="true" lang="es">Español</button><button class="language-button" type="button" data-language="en" aria-pressed="false" lang="en">English</button></div></div>
     </header>
     <main>
       <section class="hero" id="inicio">
@@ -451,7 +465,8 @@
               <h4>¿Y qué ocurre durante la hora siguiente?</h4>
               <span class="role-badge team-badge">Miembro del equipo · GBrain</span>
               <p>Estudiamos cómo evoluciona el craving inducido durante una hora: un grupo ve un documental y otro realiza una tarea de memoria de trabajo 2-back.</p>
-              <div class="card-actions"><button class="demo-open" id="open-nback-demo" type="button" aria-haspopup="dialog" aria-controls="nback-demo">Probar la tarea · 15 segundos <span aria-hidden="true">↗</span></button></div>
+              <p class="status-note">Comunicación presentada en Estambul · 2026</p>
+              <div class="card-actions"><a class="text-link" href="https://www.researchgate.net/publication/414214639_The_Paradox_of_Distraction_Cognitive_Load_Sustains_Craving_and_Craving_Hijacks_Working_Memory_in_Video-Game_Players" target="_blank" rel="noopener noreferrer">Ver la comunicación · Estambul <span aria-hidden="true">↗</span></a><button class="demo-open" id="open-nback-demo" type="button" aria-haspopup="dialog" aria-controls="nback-demo">Probar la tarea · 15 segundos <span aria-hidden="true">↗</span></button></div>
             </article>
           </div>
         </div>
@@ -529,7 +544,7 @@
           <div class="skill"><b>Preguntar y medir</b><span>Diseño experimental, escalas, encuestas y revisiones sistemáticas; LimeSurvey y JATOS.</span></div>
           <div class="skill"><b>Entender contextos</b><span>Métodos cualitativos, entrevistas, evaluación de necesidades y reducción de daños.</span></div>
           <div class="skill"><b>Analizar datos</b><span>Contraste de hipótesis, exploración de patrones, visualización y comunicación clara de resultados.</span></div>
-          <div class="skill"><b>Enseñar</b><span>Docencia universitaria en Psicología y Terapia Ocupacional; también enseñanza no formal en secundaria con Fundación Alcohol y Sociedad.</span></div>
+          <div class="skill"><b>Enseñar</b><span>Docencia universitaria en Psicología y Terapia Ocupacional; también educación no formal en secundaria.</span></div>
           <div class="skill"><b>Liderar y coordinar proyectos</b><span>De la idea a los informes: planificación, coordinación de equipos y evaluación. Experiencia en investigación y proyectos de intervención.</span></div>
           <div class="skill skill-languages"><b>Idiomas</b><div class="language-row language-en" role="img" aria-label="Inglés: nivel C1 en la escala MCER de A1 a C2"><div class="language-heading"><svg class="language-flag" viewBox="0 0 60 40" aria-hidden="true" focusable="false"><rect width="60" height="40" fill="#012169"/><path d="M0 0L60 40M60 0L0 40" stroke="#fff" stroke-width="9"/><path d="M0 0L60 40M60 0L0 40" stroke="#c8102e" stroke-width="3"/><path d="M30 0V40M0 20H60" stroke="#fff" stroke-width="14"/><path d="M30 0V40M0 20H60" stroke="#c8102e" stroke-width="8"/></svg><span class="language-name">Inglés</span><strong class="language-level">C1</strong></div><div class="cefr-scale" aria-hidden="true"><div class="cefr-track"><i class="cefr-fill"></i></div><i class="cefr-point"></i><ol class="cefr-labels"><li>A1</li><li>A2</li><li>B1</li><li>B2</li><li class="is-level">C1</li><li>C2</li></ol></div></div><div class="language-row language-pt" role="img" aria-label="Portugués: nivel B2 en la escala MCER de A1 a C2"><div class="language-heading"><svg class="language-flag" viewBox="0 0 60 40" aria-hidden="true" focusable="false"><rect width="60" height="40" fill="#ff0000"/><rect width="24" height="40" fill="#006600"/><g transform="translate(24 20)"><circle r="9" fill="none" stroke="#ffdf00" stroke-width="1.5"/><ellipse rx="4" ry="9" fill="none" stroke="#ffdf00" stroke-width="1"/><path d="M-9 0H9M-8-4H8M-8 4H8" fill="none" stroke="#ffdf00" stroke-width="1"/><path d="M-5-6H5V2Q5 7 0 8Q-5 7-5 2Z" fill="#fff" stroke="#c8102e" stroke-width="2"/><g fill="#003399"><rect x="-1" y="-4" width="2" height="2"/><rect x="-3" y="-1" width="2" height="2"/><rect x="1" y="-1" width="2" height="2"/><rect x="-1" y="0" width="2" height="2"/><rect x="-1" y="3" width="2" height="2"/></g></g></svg><span class="language-name">Portugués</span><strong class="language-level">B2</strong></div><div class="cefr-scale" aria-hidden="true"><div class="cefr-track"><i class="cefr-fill"></i></div><i class="cefr-point"></i><ol class="cefr-labels"><li>A1</li><li>A2</li><li>B1</li><li class="is-level">B2</li><li>C1</li><li>C2</li></ol></div></div><span class="language-caption">Escala MCER · A1–C2</span></div>
         </div>
@@ -695,6 +710,426 @@
     </div>
     <p class="nback-note">Recreación abreviada basada en la tarea del estudio: ritmo acelerado, secuencia fija y sin preguntas de craving, identificadores ni recogida de datos. No mide tu rendimiento.</p>
   </dialog>
+  <script>
+  // English copy lives here; the HTML above is the Spanish, no-JavaScript fallback.
+  (() => {
+    const english = {
+  "Ciencia": "Science",
+  "Divulgación": "Public engagement",
+  "Trayectoria": "Experience",
+  "Formación": "Learning",
+  "Curiosidades": "Curiosities",
+  "Contacto": "Contact",
+  "Psicología · Datos · Comportamiento humano": "Psychology · Data · Human behaviour",
+  "¿Por qué hacemos": "Why do we do",
+  "lo que hacemos?": "what we do?",
+  "Soy Jose, investigador en psicología experimental. Estudio las conductas adictivas, sí; pero sobre todo me intriga": "I'm Jose, a researcher in experimental psychology. I study addictive behaviours, yes—but above all, I am curious about",
+  "cómo pensamos, sentimos y decidimos": "how we think, feel and decide",
+  ", en el laboratorio y fuera de él. El análisis de datos me ayuda a poner a prueba esas preguntas y a contar mejor lo que encontramos.": ", both inside and outside the lab. Data analysis helps me test those questions and tell a clearer story about what we find.",
+  "Pasear por mis proyectos": "Explore my projects",
+  "Investigación · análisis · curiosidad cotidiana": "Research · analysis · everyday curiosity",
+  "Preguntas que me llevo": "Questions I take",
+  "al laboratorio y de vuelta.": "to the lab and back.",
+  "Estudios, datos y síntesis de evidencia. Distintas maneras de entender el comportamiento humano, con un proceso que se pueda examinar y compartir.": "Studies, data and evidence synthesis. Different ways of understanding human behaviour, through research that others can examine and build on.",
+  "Estudios": "Studies",
+  "Datos y herramientas": "Data and tools",
+  "Revisiones": "Reviews",
+  "Cómo trabajo y contribuyo": "How I work and contribute",
+  "Del planteamiento al experimento.": "From the question to the experiment.",
+  "Preguntas concretas, experiencias reales y tareas que puedes explorar.": "Specific questions, real experiences and tasks you can explore.",
+  "Diseño del juego · Proyecto cualitativo internacional": "Gambling-product design · International qualitative project",
+  "¿Qué tiene un producto que puede hacernos daño?": "What makes a product potentially harmful?",
+  "Investigador principal · IP": "Principal investigator · PI",
+  "Un proyecto para describir, desde la experiencia de las personas usuarias, qué rasgos del diseño del juego importan.": "A project exploring which features of gambling-product design matter, through the lived experience of people who use them.",
+  "He liderado el proyecto desde la idea inicial hasta la elaboración de los informes, en colaboración con el equipo.": "I have led the project from the initial idea through to the reports, working with the team.",
+  "Póster presentado en Estambul · 2026": "Poster presented in Istanbul · 2026",
+  "Ver el póster": "View the poster",
+  "Ruleta simulada · Experimento": "Simulated roulette · Experiment",
+  "Pequeñas casi victorias, grandes preguntas": "Near misses, big questions",
+  "Con una ruleta simulada, contrastamos el papel de las casi victorias con las diferencias entre jugadores en sus apuestas y el deseo de seguir.": "Using simulated roulette, we examine the role of near misses alongside differences between players in their bets and their desire to continue.",
+  "Leer el preprint": "Read the preprint",
+  "Probar la tarea · 3 tiradas": "Try the task · 3 spins",
+  "Tesis doctoral · Estudio prerregistrado": "Doctoral thesis · Preregistered study",
+  "Provocar el deseo de jugar para entenderlo": "Inducing the urge to play to understand it",
+  "Miembro del equipo · GBrain": "Team member · GBrain",
+  "En una parte central de mi tesis, inducimos craving en personas que jugaban a videojuegos o apostaban y observamos cómo cambiaban el deseo de jugar y la compulsividad momentánea.": "In a central study of my thesis, we induced craving in people who played video games or gambled, and observed changes in their urge to play and momentary compulsivity.",
+  "Craving on the Spot · Pendiente de decisión editorial": "Craving on the Spot · Awaiting an editorial decision",
+  "Seguimiento del craving · En curso": "Tracking craving · Ongoing",
+  "¿Y qué ocurre durante la hora siguiente?": "What happens over the next hour?",
+  "Estudiamos cómo evoluciona el craving inducido durante una hora: un grupo ve un documental y otro realiza una tarea de memoria de trabajo 2-back.": "We study how induced craving changes over an hour: one group watches a documentary, while another performs a 2-back working-memory task.",
+  "Probar la tarea · 15 segundos": "Try the task · 15 seconds",
+  "Análisis de datos · Métodos": "Data analysis · Methods",
+  "De los datos a una pregunta mejor.": "From the data to a better question.",
+  "Diseño estudios y analizo datos para explorar patrones, contrastar hipótesis y explicar resultados sin perder sus matices. La estadística y la visualización conectan las preguntas con lo que podemos aprender de ellas.": "I design studies and analyse data to explore patterns, test hypotheses and explain findings without losing their nuances. Statistics and visualisation connect our questions with what the data can tell us.",
+  "Estadística": "Statistics",
+  "Visualización": "Visualisation",
+  "Herramienta científica": "Research tool",
+  "Buscador de revistas": "Journal finder",
+  "Un proyecto para explorar revistas académicas y orientar la búsqueda de dónde publicar. Antes de compartirlo, toca terminarlo, probarlo y explicar los límites de la información que ofrece.": "A project for exploring academic journals and helping identify where to publish. Before sharing it, I need to finish it, test it and explain the limits of the information it provides.",
+  "En desarrollo · Enlace público próximamente": "In development · Public link coming soon",
+  "Leer en conjunto para ver mejor.": "Putting studies together to see more clearly.",
+  "Dos trabajos distintos: cómo se relacionan emoción y craving, y qué sabemos sobre las intervenciones.": "Two different studies: how emotion and craving relate, and what we know about interventions.",
+  "Revisión sistemática · 2023": "Systematic review · 2023",
+  "¿Por qué cuesta parar, incluso cuando lo estamos pasando bien?": "Why is it hard to stop, even when we're having a good time?",
+  "No solo actuamos precipitadamente cuando nos sentimos mal. Esta revisión estudia cómo se relacionan la impulsividad emocional, el craving y los problemas asociados a la conducta.": "We do not only act rashly when we feel bad. This review examines the relationships between emotion-driven impulsivity, craving and problems associated with a behaviour.",
+  "Entender la revisión": "Understand the review",
+  "Qué preguntamos": "What we asked",
+  "La impulsividad emocional es actuar precipitadamente bajo emociones intensas; el craving es un deseo intenso de realizar una actividad. «Estoy entusiasmado y sigo jugando» o «Estoy frustrado y busco jugar» ilustran conceptos, no resultados ni un test.": "Emotion-driven impulsivity means acting rashly under intense emotions; craving is an intense urge to engage in an activity. “I'm excited and keep gambling” and “I'm frustrated and want to gamble” illustrate concepts, not findings or a test.",
+  "Qué encontramos": "What we found",
+  "El craving mostró una relación especialmente consistente con la gravedad de los problemas. La impulsividad bajo emociones agradables también merece atención.": "Craving showed a particularly consistent association with problem severity. Impulsivity under pleasant emotions also deserves attention.",
+  "Qué falta por saber": "What we still need to know",
+  "Una asociación no demuestra qué causa qué. La evidencia se concentra en apuestas: no podemos extenderla sin más a todas las actividades.": "An association does not establish what causes what. Most of the evidence concerns gambling: we cannot simply extend it to every activity.",
+  "Cómo se hizo": "How we did it",
+  "Nueve estudios aportaron información utilizable, con diez muestras; siete trataban sobre apuestas. El protocolo se prerregistró en PROSPERO.": "Nine studies provided usable information, covering ten samples; seven concerned gambling. The protocol was preregistered in PROSPERO.",
+  "Leer la revisión sistemática": "Read the systematic review",
+  "López-Guerrero et al. (2023), Current Addiction Reports. Artículo original en acceso abierto, con licencia": "López-Guerrero et al. (2023), Current Addiction Reports. Original article available open access under",
+  "Revisión y metaanálisis · 2025 · Prerregistrado": "Review and meta-analysis · 2025 · Preregistered",
+  "¿Qué ayuda a reducir la compulsividad?": "What helps reduce compulsivity?",
+  "Cuando alguien siente que sigue jugando o usando una actividad a pesar de sus consecuencias, ¿qué puede ayudar a recuperar el control? Revisamos técnicas dirigidas a reducir ese componente compulsivo, no todos los tratamientos disponibles.": "When someone feels driven to keep gambling or engaging in an activity despite its consequences, what might help them regain control? We reviewed techniques targeting that compulsive component, rather than all available treatments.",
+  "Entender el metaanálisis": "Understand the meta-analysis",
+  "¿Qué aporta una técnica concreta, más allá del resto de la terapia? Estudiamos exposición y entrenamiento para modificar respuestas aprendidas, atención plena y estimulación cerebral no invasiva en adicciones comportamentales y conductas relacionadas.": "What does one specific technique add to the rest of a therapy? We examined exposure and training to modify learned responses, mindfulness, and non-invasive brain stimulation in behavioural addictions and related conditions.",
+  "En conjunto aparecieron mejoras en medidas de gravedad, craving o reacción a señales asociadas a la actividad. Pero los estudios variaban mucho y había indicios de resultados sobredimensionados en estudios pequeños. El potencial es prometedor; la certeza, limitada.": "Overall, improvements appeared in measures of severity, craving or reactivity to activity-related cues. But studies varied considerably, and there were signs of inflated results in small studies. The potential is promising; certainty is limited.",
+  "No podemos declarar una técnica ganadora ni concluir que todas funcionan igual. Mejorar después de una intervención no demuestra por sí solo que la mejora se deba a ella. Hacen falta comparaciones adecuadas, estudios más sólidos y prácticas transparentes.": "We cannot name a winning technique or conclude that all work equally well. Improving after an intervention does not, by itself, show that the intervention caused the improvement. We need appropriate comparisons, stronger studies and transparent practices.",
+  "El protocolo se prerregistró en PROSPERO (490637). Buscamos en cuatro bases de datos y revisamos citas; actualizamos la búsqueda hasta noviembre de 2024. Separamos tres análisis: comparación final con control (9 estudios), diferencias en el cambio antes-después (7 de esos 9), y cambio sin un comparador que aislase la técnica (15 estudios). No son tres grupos que puedan sumarse.": "The protocol was preregistered in PROSPERO (490637). We searched four databases and checked citations, updating the search through November 2024. We separated three analyses: final comparisons with a control (9 studies), differences in before–after change (7 of those 9), and change without a comparator that isolated the technique (15 studies). These are not three independent groups that can be added together.",
+  "Evaluamos el riesgo de sesgo y posibles efectos de publicación selectiva. Las decisiones, el código en R y las desviaciones respecto al protocolo se documentan en los materiales enlazados por el artículo.": "We assessed risk of bias and potential effects of selective publication. Decisions, R code and deviations from the protocol are documented in the materials linked from the article.",
+  "Leer el artículo": "Read the article",
+  "Leer en Digibug": "Read on Digibug",
+  "Ver materiales": "View materials",
+  "Ver la nota de prensa": "Read the news release",
+  "López-Guerrero et al. (2025), Current Addiction Reports, 12, 9. Síntesis divulgativa, no recomendación clínica. La edición de la revista puede requerir acceso institucional; la UGR enlaza una copia en Digibug. Materiales: enlace OSF citado en el artículo.": "López-Guerrero et al. (2025), Current Addiction Reports, 12, 9. A plain-language summary, not clinical advice. The journal version may require institutional access; the University of Granada links to a copy on Digibug. Materials: the OSF link cited in the article.",
+  "Ciencia abierta · Compromiso": "Open science · Commitment",
+  "Abrir el proceso, no solo el resultado.": "Opening the process, not just the results.",
+  "Mi compromiso es hacer una investigación que otros puedan examinar y aprovechar: métodos claros, prerregistros y materiales compartidos.": "I am committed to research that others can examine and build on: clear methods, preregistrations and shared materials.",
+  "Compartir también es dejar rastro de cómo se tomaron las decisiones: qué se planeó, qué se analizó y qué cambió respecto al plan inicial.": "Sharing also means leaving a record of how decisions were made: what was planned, what was analysed and what changed from the original plan.",
+  "Ejemplos de este compromiso": "Examples of this commitment",
+  "Ver el prerregistro de la revisión": "View the review's preregistration",
+  "PROSPERO · Registro 386907 · Revisión de 2023.": "PROSPERO · Record 386907 · 2023 review.",
+  "Consultar métodos y material suplementario": "Explore methods and supplementary material",
+  "Disponibles desde la página del artículo de 2023.": "Available from the 2023 article page.",
+  "Ver el prerregistro del metaanálisis": "View the meta-analysis preregistration",
+  "PROSPERO · Registro 490637 · Metaanálisis de 2025.": "PROSPERO · Record 490637 · 2025 meta-analysis.",
+  "Consultar materiales y código del metaanálisis": "Explore the meta-analysis materials and code",
+  "Según el artículo: búsqueda, selección y extracción de estudios, código en R, desviaciones del protocolo y análisis complementarios. Carpeta OSF enlazada en la publicación; su disponibilidad depende del servicio.": "According to the article: search, study selection and extraction, R code, protocol deviations and supplementary analyses. The publication links to an OSF folder; availability depends on the service.",
+  "Leer trabajos en acceso abierto": "Read open-access work",
+  "Publicaciones y preprints depositados en Digibug.": "Publications and preprints deposited in Digibug.",
+  "Cada recurso conserva sus condiciones de uso. Compartir código y materiales no implica que todos los datos individuales estén abiertos. Si OSF no carga, su enlace también figura en la": "Each resource retains its own terms of use. Sharing code and materials does not imply that all individual-level data are open. If OSF does not load, its link also appears on the",
+  "ficha editorial del metaanálisis": "meta-analysis publisher page",
+  "Servicio a la comunidad científica": "Service to the research community",
+  "Una mirada crítica, también para otros equipos.": "A critical eye, for other teams too.",
+  "Contribuyo a la investigación mediante la revisión por pares: examinar métodos, resultados e interpretaciones y ofrecer comentarios constructivos.": "I contribute through peer review: examining methods, findings and interpretations, and offering constructive feedback.",
+  "Revistas para las que he revisado": "Journals I have reviewed for",
+  "La ciencia también": "Science goes",
+  "sale a pasear.": "out into the world too.",
+  "Contar lo que investigamos sin pedir un máster para entenderlo. A veces con una noticia; otras, eligiendo tu propia aventura.": "Sharing research without requiring a master's degree to understand it. Sometimes through a news story; sometimes through a choose-your-own-adventure thread.",
+  "Mi investigación en medios · Canal UGR · 28 mayo 2025": "My research in the news · Canal UGR · 28 May 2025",
+  "¿Qué sabemos de los tratamientos para las conductas adictivas?": "What do we know about treatments for addictive behaviours?",
+  "La Universidad de Granada contó los resultados de nuestro metaanálisis sobre tratamientos contra las adicciones al juego o al uso del móvil. Una entrada al estudio, con sus posibilidades y sus límites.": "The University of Granada reported on our meta-analysis of treatments for gambling addiction and problematic mobile-phone use. An introduction to the study, its possibilities and its limitations.",
+  "Leer en Canal UGR": "Read on Canal UGR",
+  "Nota de prensa institucional sobre el": "University news release about the",
+  "metaanálisis de 2025": "2025 meta-analysis",
+  "Hilo propio · Bluesky · Junio 2025": "My thread · Bluesky · June 2025",
+  "«Sé que no debería, pero no puedo parar».": "“I know I shouldn't, but I can't stop.”",
+  "Un hilo sobre compulsividad y craving en formato «Elige tu propia aventura». Tú decides por dónde acercarte a las preguntas de mi tesis.": "A thread about compulsivity and craving in a choose-your-own-adventure format. You decide how to explore the questions behind my thesis.",
+  "Elegir mi aventura": "Choose my adventure",
+  "O ir directamente a una de las tres rutas": "Or jump straight to one of the three routes",
+  "¿Cómo se mide la compulsividad?": "How do we measure compulsivity?",
+  "El craving como motor": "Craving as a driving force",
+  "¿Qué puede ayudar?": "What might help?",
+  "La comunicación científica también forma parte de mi formación: en mi TFM analicé cómo la Agencia Europea de Drogas comunica su actividad científica y su valor para la ciudadanía.": "Science communication is also part of my training: my master's dissertation examined how the European Union Drugs Agency communicates its scientific work and its value to society.",
+  "Leer el trabajo de máster": "Read the master's dissertation",
+  "El hilo conductor": "The connecting thread",
+  "Especialista por oficio.": "A specialist by profession.",
+  "Curioso por naturaleza.": "Curious by nature.",
+  "Mi trabajo se centra en las adicciones comportamentales, un campo que conecta aprendizaje, emoción, decisiones y contexto. Me gusta ir de una pregunta concreta a una más amplia: ¿qué nos mueve a repetir algo, cambiar de idea o buscar otra oportunidad?": "My research focuses on behavioural addictions, a field connecting learning, emotion, decisions and context. I enjoy moving from a specific question to a broader one: what drives us to repeat something, change our minds or seek another chance?",
+  "Me formé en Psicología, Psicología de la Intervención Social e Información y Comunicación Científica. Esa mezcla me acompaña cuando diseño un estudio, colaboro con comunidades o intento contar un resultado sin quitarle sus matices.": "My background combines Psychology, the Psychology of Social Intervention, and Scientific Information and Communication. That mix shapes how I design a study, work with communities or explain a finding without stripping away its nuances.",
+  "Este sitio es mi cuaderno público: investigación, docencia y pequeños experimentos personales, algunos serios y otros simplemente hechos por curiosidad.": "This site is my public notebook: research, teaching and small personal experiments—some serious, others simply driven by curiosity.",
+  "Lo que pongo en juego": "What I bring",
+  "Competencias que se cruzan.": "Skills that connect.",
+  "Una caja de herramientas metodológica y humana.": "A toolkit of methods and people skills.",
+  "Preguntar y medir": "Ask and measure",
+  "Diseño experimental, escalas, encuestas y revisiones sistemáticas; LimeSurvey y JATOS.": "Experimental design, scales, surveys and systematic reviews; LimeSurvey and JATOS.",
+  "Entender contextos": "Understand contexts",
+  "Métodos cualitativos, entrevistas, evaluación de necesidades y reducción de daños.": "Qualitative methods, interviews, needs assessment and harm reduction.",
+  "Analizar datos": "Analyse data",
+  "Contraste de hipótesis, exploración de patrones, visualización y comunicación clara de resultados.": "Hypothesis testing, pattern exploration, visualisation and clear communication of findings.",
+  "Enseñar": "Teach",
+  "Liderar y coordinar proyectos": "Lead and coordinate projects",
+  "De la idea a los informes: planificación, coordinación de equipos y evaluación. Experiencia en investigación y proyectos de intervención.": "From the idea to the reports: planning, team coordination and evaluation. Experience in research and intervention projects.",
+  "Idiomas": "Languages",
+  "Inglés": "English",
+  "Portugués": "Portuguese",
+  "Escala MCER · A1–C2": "CEFR scale · A1–C2",
+  "Docencia universitaria en Psicología y Terapia Ocupacional; también educación no formal en secundaria.": "University teaching in Psychology and Occupational Therapy, alongside non-formal education in secondary schools.",
+  "Experiencia y formación": "Experience and education",
+  "Distintas maneras de": "Different ways of",
+  "acercarme a las personas.": "connecting with people.",
+  "Investigación": "Research",
+  "Psicología Experimental · Universidad de Granada": "Experimental Psychology · University of Granada",
+  "Proyectos cuantitativos y cualitativos sobre compulsividad, craving y juego; investigación compartida con equipos de Países Bajos y Suecia.": "Quantitative and qualitative projects on compulsivity, craving and gambling; collaborative research with teams in the Netherlands and Sweden.",
+  "He participado en GBrain3 y GBrain4; mi ayuda FPI estuvo vinculada a GBrain3.": "I have been part of GBrain3 and GBrain4; my FPI predoctoral fellowship was linked to GBrain3.",
+  "Gestión de proyectos · Energy Control Andalucía": "Project management · Energy Control Andalucía",
+  "Reducción de daños, promoción de salud y bienestar sexual, análisis de necesidades, coordinación de actividades y voluntariado, comunicación digital y trabajo con jóvenes y comunidades migrantes.": "Harm reduction, health and sexual well-being promotion, needs assessment, activity and volunteer coordination, digital communication, and work with young people and migrant communities.",
+  "Gestión de proyectos · Check!n Lisboa": "Project management · Check!n Lisboa",
+  "Reducción de riesgos y trabajo educativo en contextos recreativos, desde una perspectiva cercana a quienes participan en ellos.": "Risk reduction and educational work in recreational settings, with an approach grounded in participants' experiences.",
+  "Educación y prevención · Fundación Alcohol y Sociedad": "Education and prevention · Fundación Alcohol y Sociedad",
+  "Gestión, docencia y evaluación de programas escolares sobre alcohol; alcance acumulado de 42.500 estudiantes, 700 familias y 200 centros educativos.": "Management, teaching and evaluation of school-based alcohol-prevention programmes, reaching a cumulative 42,500 students, 700 families and 200 schools.",
+  "Orientación educativa · Universidad de Granada": "Educational support · University of Granada",
+  "Apoyo a profesorado y alumnado en Moodle, software educativo y métodos de investigación.": "Supporting staff and students with Moodle, educational software and research methods.",
+  "Docencia": "Teaching",
+  "Psicología en el aula": "Psychology in the classroom",
+  "He enseñado Psicología General e Introducción a la Psicología en grados de Psicología y Terapia Ocupacional.": "I have taught General Psychology and Introduction to Psychology on Psychology and Occupational Therapy degree programmes.",
+  "Psicología, intervención social y comunicación científica": "Psychology, social intervention and science communication",
+  "Licenciatura en Psicología · Máster en Psicología de la Intervención Social · Máster en Información y Comunicación Científica. Universidades de Murcia y Granada.": "Licenciatura in Psychology · Master's in the Psychology of Social Intervention · Master's in Scientific Information and Communication. Universities of Murcia and Granada.",
+  "Estancias · Investigación y formación": "Research stays and international training",
+  "Cuatro lugares para cambiar de perspectiva.": "Four places to change perspective.",
+  "Tres estancias de investigación en Países Bajos y Suecia, y una experiencia Erasmus+ de formación en Italia. Departamentos, perspectivas y maneras de aprender.": "Three research stays in the Netherlands and Sweden, and an Erasmus+ training experience in Italy. Different departments, perspectives and ways to learn.",
+  "2022 · Países Bajos": "2022 · Netherlands",
+  "2024 · Italia · Formación Erasmus+": "2024 · Italy · Erasmus+ training",
+  "2025 · Países Bajos": "2025 · Netherlands",
+  "Ámsterdam": "Amsterdam",
+  "2026 · Suecia": "2026 · Sweden",
+  "Gotemburgo": "Gothenburg",
+  "Formación continua": "Continuing education",
+  "Pasaporte de aprendizaje.": "A passport to learning.",
+  "Una selección de cursos que conectan datos, investigación, intervención y comunicación. Sin separar aulas y pantallas: lo importante es lo que permiten aprender.": "Selected courses connecting data, research, intervention and communication. No division between classrooms and screens: what matters is what they help us learn.",
+  "Todos": "All",
+  "Datos y métodos": "Data and methods",
+  "Intervención y docencia": "Intervention and teaching",
+  "Comunicación": "Communication",
+  "16 cursos seleccionados · Abre un sello para saber más.": "16 selected courses · Open a stamp to learn more.",
+  "Ver curso": "View course",
+  "Curso": "Course",
+  "Institución": "Institution",
+  "Qué aporta": "What it offers",
+  "Estadística y análisis de datos con JASP.": "Statistics and data analysis with JASP.",
+  "Divulgación científica": "Science communication",
+  "Universidad de Granada": "University of Granada",
+  "Comunicar investigación de forma comprensible fuera del ámbito académico.": "Communicating research clearly beyond academia.",
+  "Publicar en ciencia de las adicciones": "Publishing in addiction science",
+  "Formación sobre publicación científica en el campo de las adicciones.": "Training in scientific publication in the field of addictions.",
+  "R y RStudio": "R and RStudio",
+  "Programación y trabajo con datos en R y RStudio.": "Programming and working with data in R and RStudio.",
+  "Análisis multivariante y machine learning": "Multivariate analysis and machine learning",
+  "Técnicas de análisis multivariante y machine learning con R": "Multivariate analysis and machine-learning techniques with R",
+  "Métodos para explorar relaciones entre múltiples variables y modelos con R.": "Methods for exploring relationships between multiple variables and building models with R.",
+  "Python para analizar datos": "Python for data analysis",
+  "Python como herramienta para el análisis de datos": "Python as a tool for data analysis",
+  "Herramientas de programación para el tratamiento y análisis de datos.": "Programming tools for processing and analysing data.",
+  "Web scraping con Python": "Web scraping with Python",
+  "Web scraping con Python: extracción automatizada de datos desde sitios web": "Web scraping with Python: automated extraction of data from websites",
+  "Extracción automatizada de información publicada en la web.": "Automated extraction of information published on the web.",
+  "Herramientas para investigar": "Tools for research",
+  "Herramientas para el desarrollo de la investigación": "Tools for developing research",
+  "Recursos para apoyar el proceso de investigación.": "Resources to support the research process.",
+  "Iniciación a la docencia universitaria": "Introduction to university teaching",
+  "Formación pedagógica para la enseñanza en la universidad.": "Pedagogical training for university teaching.",
+  "Un programa especializado sobre análisis y aprovechamiento de datos en Google Cloud.": "A specialised programme on analysing and working with data in Google Cloud.",
+  "Gamificación": "Gamification",
+  "Introducción a la gamificación a través de casos prácticos": "An introduction to gamification through practical cases",
+  "Uso de dinámicas de juego en contextos de aprendizaje.": "Using game dynamics in learning contexts.",
+  "Grupos focales": "Focus groups",
+  "Cómo realizar grupos focales": "How to conduct focus groups",
+  "Una técnica cualitativa para explorar experiencias y perspectivas compartidas.": "A qualitative technique for exploring shared experiences and perspectives.",
+  "Perspectiva de género": "Gender perspective",
+  "Incorporación de la perspectiva de género en proyectos sociales": "Integrating a gender perspective into social projects",
+  "Incorporar la perspectiva de género al trabajo con proyectos sociales.": "Bringing a gender perspective to work on social projects.",
+  "Co-creación y salud digital": "Co-creation and digital health",
+  "d-HealthyLife · Métodos de co-creación para desarrollar herramientas de salud digital": "d-HealthyLife · Co-creation methods for developing digital-health tools",
+  "EIT Health Campus · Bruselas": "EIT Health Campus · Brussels",
+  "Diseñar herramientas de salud digital con la participación de sus destinatarios.": "Designing digital-health tools with the participation of their intended users.",
+  "Redes sociales, investigación y docencia": "Social media, research and teaching",
+  "Redes Sociales para Investigación y Docencia": "Social Media for Research and Teaching",
+  "Universidad Politécnica de Madrid": "Technical University of Madrid",
+  "Redes sociales como espacios para compartir conocimiento y enseñar.": "Social media as spaces for sharing knowledge and teaching.",
+  "Especialista en drogodependencias": "Specialist training in drug dependence",
+  "Especialista Universitario en Drogodependencias": "University Specialist in Drug Dependence",
+  "Universidad de Murcia · Colectivo La Huertecica": "University of Murcia · Colectivo La Huertecica",
+  "Formación especializada en drogodependencias e intervención.": "Specialised training in drug dependence and intervention.",
+  "Congresos y conferencias": "Conferences",
+  "Ideas que me han": "Ideas that have",
+  "llevado a otras ciudades.": "taken me to other cities.",
+  "Encuentros a los que he asistido: para compartir trabajo, escuchar otras preguntas y volver con alguna idea nueva.": "Meetings I have attended: to share work, listen to other questions and return with a new idea.",
+  "Selecciona un punto para ver los encuentros de esa ciudad. También puedes consultarlos en el listado de abajo.": "Select a point to see the meetings in that city. You can also browse them in the list below.",
+  "El mapa necesita conexión. Todos los encuentros están disponibles en el listado por ciudades.": "The map requires a connection. All meetings are available in the city-by-city list.",
+  "El recorrido, ciudad a ciudad.": "The journey, city by city.",
+  "12 ciudades · 19 encuentros": "12 cities · 19 meetings",
+  "Estambul": "Istanbul",
+  "1 encuentro": "1 meeting",
+  "Lisboa": "Lisbon",
+  "6 encuentros": "6 meetings",
+  "2 encuentros": "2 meetings",
+  "Berlín": "Berlin",
+  "Gante": "Ghent",
+  "Bruselas": "Brussels",
+  "Dublín": "Dublin",
+  "Proyectos personales · herramientas · ideas": "Personal projects · tools · ideas",
+  "Curiosidades en marcha.": "Curiosity in progress.",
+  "Apps pequeñas y experimentos personales para seguir preguntas que no siempre caben en el CV.": "Small apps and personal experiments to follow questions that do not always fit on a CV.",
+  "Costa · Luz · Andalucía": "Coast · Light · Andalusia",
+  "Un cuaderno interactivo para explorar doce faros, sus cadencias luminosas, mapas y curiosidades.": "An interactive notebook exploring twelve lighthouses, their light patterns, maps and curiosities.",
+  "Abrir la app": "Open the app",
+  "Cocina · Recetas": "Cooking · Recipes",
+  "La app de las recetas": "My recipe app",
+  "Un proyecto personal que lleva la curiosidad también a la cocina.": "A personal project that brings curiosity into the kitchen too.",
+  "Arte · Color": "Art · Colour",
+  "Un experimento digital inspirado en la obra y los campos de color de Mark Rothko.": "A digital experiment inspired by Mark Rothko's work and colour fields.",
+  "Arte · Videojuego": "Art · Video game",
+  "Un juego de lucha en el que grandes artistas convierten sus obras en ataques. Historia del arte, humor y duelos de un minuto.": "A fighting game where great artists turn their works into attacks. Art history, humour and one-minute duels.",
+  "Impresión 3D · En familia": "3D printing · Family project",
+  "Un proyecto que comparto con mi sobrina Nadia alrededor de una impresora 3D: imaginar, probar y aprender haciendo.": "A project I share with my niece Nadia, built around a 3D printer: imagining, experimenting and learning by doing.",
+  "¿Una pregunta, una colaboración o una idea rara? Por aquí se empieza.": "A question, a collaboration or an unusual idea? Start here.",
+  "Escríbeme ↗": "Get in touch ↗",
+  "Perfil de investigación UGR ↗": "UGR research profile ↗",
+  "Publicaciones en Digibug ↗": "Publications on Digibug ↗",
+  "Jose López Guerrero · Psicología, datos y comportamiento humano": "Jose López Guerrero · Psychology, data and human behaviour",
+  "Muestra interactiva · Ruleta simulada": "Interactive demo · Simulated roulette",
+  "Tres tiradas para conocer la tarea": "Three spins to explore the task",
+  "Elige un número del 0 al 36 y una apuesta de 1 a 5 créditos.": "Choose a number from 0 to 36 and a bet of 1 to 5 credits.",
+  "Saldo: 100 créditos": "Balance: 100 credits",
+  "Tiradas restantes: 3": "Spins remaining: 3",
+  "Tu número (0–36)": "Your number (0–36)",
+  "Apuesta (1–5)": "Bet (1–5)",
+  "Girar": "Spin",
+  "El número ganador es el señalado por el triángulo cian.": "The winning number is the one indicated by the cyan triangle.",
+  "Recreación abreviada basada en el código del estudio: muestra tres tipos de desenlace, sin reproducir sus proporciones ni recoger datos. Los créditos son ficticios.": "A shortened recreation based on the study's code: it illustrates three types of outcome without reproducing their proportions or collecting data. Credits are fictional.",
+  "Muestra interactiva · Memoria de trabajo": "Interactive demo · Working memory",
+  "La tarea 2-back, en 15 segundos": "The 2-back task, in 15 seconds",
+  "Una versión breve para entender cómo era la tarea.": "A short version to show how the task worked.",
+  "Verás dígitos del 1 al 3. Pulsa la barra espaciadora —o el botón— cuando el dígito sea igual al que apareció": "You will see digits from 1 to 3. Press the space bar—or the button—when a digit matches the one shown",
+  "dos posiciones antes": "two positions earlier",
+  "Ocho dígitos, sin registro de respuestas.": "Eight digits, with no recording of responses.",
+  "Empezar muestra": "Start demo",
+  "Coincide con el de hace dos": "Matches the one two steps back",
+  "Prueba a seguir la secuencia.": "Try following the sequence.",
+  "Recreación abreviada basada en la tarea del estudio: ritmo acelerado, secuencia fija y sin preguntas de craving, identificadores ni recogida de datos. No mide tu rendimiento.": "A shortened recreation based on the study task: faster pacing, a fixed sequence, and no craving questions, identifiers or data collection. It does not assess your performance.",
+  "Educación no formal en secundaria.": "Non-formal education in secondary schools.",
+  "Comunicación presentada en Estambul · 2026": "Conference presentation in Istanbul · 2026",
+  "Ver la comunicación · Estambul": "View the presentation · Istanbul",
+  "Idioma de la página": "Page language",
+  "Jose López Guerrero — Psicología, datos y comportamiento": "Jose López Guerrero — Psychology, data and behaviour",
+  "Jose López Guerrero: investigación en psicología, análisis de datos y curiosidad por el comportamiento humano.": "Jose López Guerrero: psychology research, data analysis and curiosity about human behaviour.",
+  "Jose López Guerrero, inicio": "Jose López Guerrero, home",
+  "Navegación principal": "Main navigation",
+  "Jose López Guerrero, sonriente, con las manos en los bolsillos en un entorno luminoso.": "Jose López Guerrero smiling, with his hands in his pockets in a bright setting.",
+  "Dentro de Ciencia": "Within Science",
+  "Herramientas de análisis": "Analysis tools",
+  "Revistas para las que he realizado revisiones": "Journals I have reviewed for",
+  "Inglés: nivel C1 en la escala MCER de A1 a C2": "English: level C1 on the CEFR scale from A1 to C2",
+  "Portugués: nivel B2 en la escala MCER de A1 a C2": "Portuguese: level B2 on the CEFR scale from A1 to C2",
+  "Filtrar cursos por área": "Filter courses by area",
+  "Mapa de ciudades de congresos": "Map of conference cities",
+  "Abrir Faros de Andalucía": "Open Faros de Andalucía",
+  "Abrir La app de las recetas": "Open the recipe app",
+  "Abrir Rothko": "Open Rothko",
+  "Abrir Pincel de Hierro": "Open Pincel de Hierro",
+  "Abrir NaDimension": "Open NaDimension",
+  "Cerrar demostración": "Close demo",
+  "Ruleta de 37 números con puntero cian en la parte superior.": "Roulette wheel with 37 numbers and a cyan pointer at the top.",
+  "¡Has ganado!": "You won!",
+  "¡Casi!": "So close!",
+  "Elige un número entero entre 0 y 36.": "Choose a whole number between 0 and 36.",
+  "Elige una apuesta de 1 a 5 créditos que no supere tu saldo.": "Choose a bet of 1 to 5 credits that does not exceed your balance.",
+  "Girando…": "Spinning…",
+  "Muestra completada": "Demo complete",
+  "Muestra completada. Así funciona la comparación con el dígito de dos posiciones antes. Esta demo no evalúa tu rendimiento.": "Demo complete. This is how comparison with the digit two positions earlier works. This demo does not assess your performance.",
+  "Repetir muestra": "Repeat demo",
+  "¿Es igual al de dos posiciones antes?": "Does it match the digit two positions earlier?",
+  "Correcto": "Correct",
+  "Coincidía con el de hace dos": "It matched the one two steps back",
+  "No coincidía con el de hace dos": "It did not match the one two steps back",
+  " Fin de la muestra de tres tiradas.": " End of the three-spin demo.",
+  "Fin de la muestra de tres tiradas.": "End of the three-spin demo."
+};
+    const textRecords = new WeakMap();
+    const attributeRecords = new WeakMap();
+    const attributes = ["aria-label", "alt", "title", "content"];
+    let language = new URL(location.href).searchParams.get("lang") === "en" ? "en" : "es";
+    function translate(source) {
+      const key = source.trim();
+      let output = english[key];
+      if (output === undefined) {
+        let m;
+        if ((m = key.match(/^Saldo: ([-\d]+) créditos$/))) output = "Balance: " + m[1] + " credits";
+        else if ((m = key.match(/^Tiradas restantes: (\d+)$/))) output = "Spins remaining: " + m[1];
+        else if ((m = key.match(/^Dígito (\d+) de (\d+)$/))) output = "Digit " + m[1] + " of " + m[2];
+        else if ((m = key.match(/^(\d+) cursos? seleccionados? · Abre un sello para saber más\.$/))) output = m[1] + (m[1] === "1" ? " selected course" : " selected courses") + " · Open a stamp to learn more.";
+        else if ((m = key.match(/^Congresos en (.+)$/))) output = "Conferences in " + (english[m[1]] || m[1]);
+        else if ((m = key.match(/^Salió el (\d+)([\s\S]*)$/))) {
+          const endings = {". ¡Has ganado!":". You won!", ", justo al lado de tu número. ¡Casi!":", right next to your number. So close!", ". Esta vez no hubo premio.":". No win this time."};
+          const end = m[2].replace(" Fin de la muestra de tres tiradas.", "");
+          output = "The ball landed on " + m[1] + (endings[end] || end);
+          if (m[2].includes("Fin de la muestra")) output += " End of the three-spin demo.";
+        } else if (key.startsWith("· ")) {
+          const tail = key.slice(2);
+          if (english[tail]) output = "· " + english[tail];
+        }
+      }
+      return output === undefined ? source : source.replace(key, () => output);
+    }
+    function text(node) {
+      if (!node.parentElement || node.parentElement.closest("script,style,svg,noscript")) return;
+      let record = textRecords.get(node);
+      if (!record || node.data !== record.rendered) record = {source:node.data,rendered:node.data};
+      const value = language === "en" ? translate(record.source) : record.source;
+      record.rendered = value;
+      textRecords.set(node,record);
+      if (node.data !== value) node.data = value;
+    }
+    function element(node) {
+      let records = attributeRecords.get(node);
+      if (!records) { records = new Map(); attributeRecords.set(node,records); }
+      attributes.forEach(attribute => {
+        if (!node.hasAttribute(attribute)) return;
+        if (attribute === "content" && !node.matches('meta[name="description"]')) return;
+        const current = node.getAttribute(attribute);
+        let record = records.get(attribute);
+        if (!record || current !== record.rendered) record = {source:current,rendered:current};
+        const value = language === "en" ? translate(record.source) : record.source;
+        record.rendered = value;
+        records.set(attribute,record);
+        if (current !== value) node.setAttribute(attribute,value);
+      });
+    }
+    function subtree(root) {
+      if (root.nodeType === Node.TEXT_NODE) { text(root); return; }
+      if (root.nodeType !== Node.ELEMENT_NODE && root.nodeType !== Node.DOCUMENT_NODE) return;
+      if (root.nodeType === Node.ELEMENT_NODE) element(root);
+      const walker = document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+      while (walker.nextNode()) text(walker.currentNode);
+      if (root.querySelectorAll) root.querySelectorAll("[aria-label],[alt],[title],meta[name=description]").forEach(element);
+    }
+    const options = {subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:attributes};
+    const observer = new MutationObserver(mutations => {
+      observer.disconnect();
+      mutations.forEach(mutation => {
+        if (mutation.type === "characterData") text(mutation.target);
+        else if (mutation.type === "attributes") element(mutation.target);
+        else mutation.addedNodes.forEach(subtree);
+      });
+      observer.observe(document.documentElement,options);
+    });
+    function choose(next,updateAddress = true) {
+      language = next === "en" ? "en" : "es";
+      observer.disconnect();
+      subtree(document);
+      document.documentElement.lang = language;
+      document.querySelectorAll("[data-language]").forEach(button => button.setAttribute("aria-pressed",String(button.dataset.language === language)));
+      if (updateAddress) {
+        try {
+          const address = new URL(location.href);
+          address.searchParams.set("lang",language);
+          history.replaceState(null,"",address);
+        } catch (_) { /* Switching still works when file URL history is restricted. */ }
+      }
+      observer.observe(document.documentElement,options);
+    }
+    window.siteI18n = {translate, get language() {return language;}, choose};
+    window.addEventListener("popstate",()=>choose(new URL(location.href).searchParams.get("lang"),false));
+    document.querySelectorAll("[data-language]").forEach(button => button.addEventListener("click",()=>choose(button.dataset.language)));
+    document.querySelector(".language-switch").hidden = false;
+    choose(language,false);
+  })();
+  </script>
   <script>
   (() => {
     const dialog = document.getElementById("roulette-demo");
