@@ -45,7 +45,7 @@
     .button:hover { background: #174552; transform: translateY(-2px); }
     .text-link { font-size: .9rem; font-weight: 700; text-decoration-thickness: 1px; text-underline-offset: 4px; }
     .hero-portrait { width: min(100%, 410px); margin: 0; justify-self: center; }
-    .hero-portrait img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center; border: 7px solid var(--card); border-radius: 46% 46% 10px 10px; background: #dcecf2; box-shadow: 0 24px 65px #142b3b18; }
+    .hero-portrait img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center; border: 7px solid var(--card); border-radius: 46% 46% 10px 10px; background: #dcecf2; box-shadow: 0 24px 65px #142b3b18; }
     .hero-portrait figcaption { margin-top: 12px; color: var(--muted); text-align: center; font-size: .76rem; font-weight: 700; letter-spacing: .04em; }
     section { scroll-margin-top: 28px; }
     .section-head { display: flex; align-items: end; justify-content: space-between; gap: 32px; margin-bottom: 27px; }
@@ -100,7 +100,6 @@
       .hero { min-height: auto; grid-template-columns: 1fr; gap: 11px; padding: 64px 0 48px; }
       .hero-portrait { width: min(100%, 360px); }
       .project-grid { grid-template-columns: 1fr 1fr; }
-      .project-grid:not(.app-grid) .project:last-child { grid-column: span 2; }
       .about-grid { grid-template-columns: 1fr; gap: 26px; }
       .skill-grid { grid-template-columns: 1fr 1fr; }
     }
@@ -116,7 +115,6 @@
       .section-head { align-items: flex-start; flex-direction: column; gap: 12px; }
       .projects, .skills, .experience { padding-block: 58px; }
       .project-grid { grid-template-columns: minmax(0, 1fr); }
-      .project-grid:not(.app-grid) .project:last-child { grid-column: auto; }
       .project { min-height: 250px; }
       .about { padding-block: 58px; }
       .skill-grid { grid-template-columns: minmax(0, 1fr); gap: 8px; }
@@ -242,19 +240,132 @@
     .map-dot--training .map-dot-core { background: var(--green); }
     .map-popup-kind { margin: 0 0 7px; color: var(--green); font-size: .75rem; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; }
     .map-enhanced .map-list-group:not(.is-current) { display: none; }
+
+    /* Ciencia, divulgación y pasaporte: una ubicación principal para cada contenido. */
+    [hidden] { display: none !important; }
+    a, button, summary { touch-action: manipulation; }
+    a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; }
+    nav { flex-wrap: wrap; gap: 12px 21px; }
+    .topbar { align-items: center; }
+    .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+    .project { min-height: 0; }
+    .project::after { pointer-events: none; }
+    .project h3, .project h4 { max-width: none; margin: 0 0 12px; font: 400 1.55rem/1.16 var(--serif); letter-spacing: -.025em; }
+    .project-icon { margin-bottom: 18px; }
+    .project p { margin-bottom: 16px; }
+    .project .card-actions { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 10px 20px; margin-top: auto; }
+    .project .card-actions .text-link, .project .card-actions .demo-open { margin: 0; }
+    .science-jumps { display: flex; flex-wrap: wrap; gap: 8px 21px; margin: 0 0 34px; }
+    .science-jumps a { color: var(--green); font-size: .83rem; text-underline-offset: 4px; }
+    .science-group + .science-group { margin-top: 38px; }
+    .subsection-head { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; margin-bottom: 18px; }
+    .subsection-head h3 { margin: 0; font: 400 1.65rem/1.2 var(--serif); letter-spacing: -.025em; }
+    .subsection-head p { max-width: 460px; margin: 0; color: var(--muted); font-size: .88rem; }
+    .role-badge { display: inline-flex; align-items: center; margin: 0 0 12px; padding: 4px 9px; border-radius: 4px; border: 1px solid #91b8c2; background: #eaf3f5; color: var(--green); font-size: .72rem; font-weight: 800; }
+    .project .leadership-note { padding-left: 12px; border-left: 2px solid var(--orange); font-size: .83rem; }
+    .status-note { margin: 0 0 15px; color: var(--green); font-size: .78rem; font-weight: 700; }
+    .method-workbench { display: grid; grid-template-columns: 1.35fr 1fr; gap: 35px; margin: 30px 0 38px; padding: 28px; border-radius: 8px; background: var(--ink); color: var(--card); }
+    .method-workbench > * { min-width: 0; }
+    .method-workbench .kicker { color: #bddce7; }
+    .method-workbench h3 { margin: 10px 0 13px; font: 400 1.8rem/1.15 var(--serif); }
+    .method-workbench p { margin: 0 0 18px; color: #e7f2f5; font-size: .93rem; }
+    .method-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+    .method-tags li { padding: 5px 10px; border: 1px solid #a2c4ce55; border-radius: 4px; color: var(--yellow); font-size: .8rem; font-weight: 700; }
+    .journal-tool { align-self: center; padding: 21px; border-left: 1px solid #bdd0d966; }
+    .journal-tool h4 { margin: 7px 0 11px; font: 400 1.45rem var(--serif); }
+    .journal-tool p { font-size: .87rem; }
+    .journal-tool .status-note { margin: 0; color: var(--yellow); }
+    .research-explainer { position: relative; z-index: 1; width: 100%; margin-bottom: 16px; }
+    .research-explainer > summary { color: var(--green); font-size: .85rem; font-weight: 750; cursor: pointer; text-underline-offset: 4px; }
+    .explainer-content { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); }
+    .explainer-content h5 { margin: 18px 0 7px; font: 700 .89rem var(--sans); }
+    .explainer-content h5:first-child { margin-top: 0; }
+    .explainer-content p { font-size: .87rem; }
+    .explainer-content details summary { font-size: .81rem; color: var(--green); cursor: pointer; }
+    .explainer-content details p { margin-top: 10px; }
+    .project .source-note { margin: 16px 0 0; font-size: .72rem; color: var(--muted); }
+    .research-practice { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px; margin-top: 35px; padding-top: 25px; border-top: 1px solid var(--line); }
+    .research-practice > * { min-width: 0; }
+    .research-practice h3 { margin: 8px 0 10px; font: 400 1.4rem/1.2 var(--serif); letter-spacing: -.025em; }
+    .research-practice p { margin: 0 0 12px; color: var(--muted); font-size: .89rem; }
+    .scientific-service { margin: 0; padding: 0; border: 0; border-radius: 0; background: transparent; }
+    .scientific-service h3 { font-size: 1.4rem; }
+    .reviewer-more, .open-evidence { margin-top: 14px; }
+    .reviewer-more summary, .open-evidence summary { width: fit-content; max-width: 100%; color: var(--green); font-size: .84rem; font-weight: 700; cursor: pointer; }
+    .reviewer-journals { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px 18px; margin: 12px 0 0; padding-left: 18px; list-style: disc; color: var(--muted); }
+    .reviewer-journals li { min-width: 0; max-width: 100%; padding: 0; border: 0; border-radius: 0; font-size: .81rem; overflow-wrap: anywhere; }
+    .evidence-list { margin: 14px 0 0; padding-left: 20px; color: var(--muted); font-size: .84rem; }
+    .evidence-list li { margin-bottom: 12px; }
+    .evidence-list a { color: var(--green); font-weight: 700; text-underline-offset: 3px; }
+    .evidence-list small { display: block; margin-top: 3px; }
+    .outreach { padding: 65px 0 75px; border-top: 1px solid var(--line); }
+    .outreach-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; align-items: start; }
+    .outreach-piece { min-width: 0; padding: 5px 0 5px 22px; border-left: 3px solid var(--orange); }
+    .outreach-piece:last-child { border-color: var(--green); }
+    .outreach-piece h3 { margin: 10px 0 13px; font: 400 1.7rem/1.14 var(--serif); letter-spacing: -.025em; }
+    .outreach-piece p { color: var(--muted); font-size: .94rem; }
+    .outreach-piece .text-link { font-size: .85rem; }
+    .outreach-meta { color: var(--green); font-size: .74rem; font-weight: 750; }
+    .adventure-routes { margin-top: 18px; }
+    .adventure-routes summary { color: var(--green); font-size: .84rem; font-weight: 750; cursor: pointer; }
+    .adventure-routes ol { display: grid; gap: 9px; padding-left: 22px; margin-bottom: 0; }
+    .adventure-routes a { font-size: .86rem; text-underline-offset: 4px; }
+    .academic-note { margin: 28px 0 0; padding-top: 17px; border-top: 1px solid var(--line); color: var(--muted); font-size: .85rem; }
+    .mobility-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .passport { padding: 65px 0 75px; border-top: 1px solid var(--line); }
+    .passport-filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; }
+    .passport-filter { padding: 9px 13px; border: 1px solid var(--line); border-radius: 999px; background: var(--card); color: var(--ink); font: 700 .82rem var(--sans); cursor: pointer; }
+    .passport-filter[aria-pressed="true"] { background: var(--green); border-color: var(--green); color: white; }
+    .passport-count { margin: 0 0 18px; color: var(--muted); font-size: .81rem; }
+    .passport-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; align-items: start; }
+    .passport-stamp { min-width: 0; border: 1px dashed #8fadb9; border-radius: 6px; background: #f0f6f9; }
+    .passport-stamp summary { min-height: 160px; padding: 17px; cursor: pointer; list-style: none; }
+    .passport-stamp summary::-webkit-details-marker { display: none; }
+    .stamp-top { display: flex; justify-content: space-between; gap: 10px; align-items: center; margin-bottom: 12px; }
+    .stamp-mark { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid currentColor; border-radius: 50%; color: var(--green); font-size: .62rem; font-weight: 800; letter-spacing: .04em; transform: rotate(-8deg); }
+    .passport-stamp[data-track="intervencion"] .stamp-mark { color: #924d37; }
+    .passport-stamp[data-track="comunicacion"] .stamp-mark { color: #695184; }
+    .passport-stamp[data-track="investigacion"] .stamp-mark { color: #435b6b; }
+    .stamp-year { color: var(--muted); font-size: .76rem; font-weight: 700; }
+    .stamp-title { display: block; font: 400 1.06rem/1.23 var(--serif); overflow-wrap: anywhere; }
+    .stamp-category { display: block; margin-top: 9px; color: var(--muted); font-size: .68rem; line-height: 1.3; }
+    .stamp-toggle { display: block; margin-top: 11px; color: var(--green); font-size: .73rem; font-weight: 750; }
+    .stamp-toggle::after { content: " +"; }
+    .passport-stamp[open] .stamp-toggle::after { content: " −"; }
+    .stamp-body { margin: 0 17px; padding: 15px 0 17px; border-top: 1px solid var(--line); }
+    .stamp-body p { margin: 0 0 10px; color: var(--muted); font-size: .8rem; overflow-wrap: anywhere; }
+    .stamp-body p:last-child { margin-bottom: 0; }
+    .stamp-body strong { color: var(--ink); font-weight: 700; }
+    .app-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .closing { align-items: flex-start; }
+    .closing > p { flex: 1 1 30%; }
+    .closing-links { flex: 1 1 60%; }
+    @media (max-width: 900px) { .passport-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 800px) {
+      .research-practice, .outreach-grid { grid-template-columns: 1fr; gap: 27px; }
+      .method-workbench { grid-template-columns: 1fr; gap: 22px; padding: 24px; }
+      .journal-tool { padding: 20px 0 0; border-left: 0; border-top: 1px solid #bdd0d966; }
+      .subsection-head { align-items: flex-start; flex-direction: column; gap: 8px; }
+      .app-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .mobility-intro { align-items: start; }
+    }
+    @media (max-width: 540px) {
+      .project-grid, .app-grid, .mobility-grid, .passport-grid { grid-template-columns: minmax(0, 1fr); }
+      .project { min-height: 0; padding: 23px 20px; }
+      .outreach, .passport { padding-block: 55px; }
+      .reviewer-journals { grid-template-columns: 1fr; }
+      .passport-stamp summary { min-height: 0; }
+      .outreach-piece { padding-left: 17px; }
+      .closing-links { gap: 12px 17px; }
+    }
+
   </style>
 </head>
 <body>
   <div class="wrap">
     <header class="topbar">
       <a class="brand" href="#inicio" aria-label="Jose López Guerrero, inicio"><span class="brand-mark">j</span> Jose López Guerrero</a>
-      <nav aria-label="Navegación principal">
-        <a href="#proyectos">Proyectos</a>
-        <a href="#sobre-mi">Sobre mí</a>
-        <a href="#trayectoria">Trayectoria</a>
-        <a href="#curiosidades">Curiosidades</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
+      <nav aria-label="Navegación principal"><a href="#proyectos">Ciencia</a><a href="#divulgacion">Divulgación</a><a href="#trayectoria">Trayectoria</a><a href="#formacion">Formación</a><a href="#curiosidades">Curiosidades</a><a href="#contacto">Contacto</a></nav>
     </header>
     <main>
       <section class="hero" id="inicio">
@@ -264,7 +375,7 @@
           <p class="hero-copy">Soy Jose, investigador en psicología experimental. Estudio las conductas adictivas, sí; pero sobre todo me intriga <strong>cómo pensamos, sentimos y decidimos</strong>, en el laboratorio y fuera de él. El análisis de datos me ayuda a poner a prueba esas preguntas y a contar mejor lo que encontramos.</p>
           <div class="actions">
             <a class="button" href="#proyectos">Pasear por mis proyectos <span aria-hidden="true">↘</span></a>
-            <a class="text-link" href="https://orcid.org/0000-0002-6598-283X" target="_blank" rel="noreferrer">ORCID ↗</a>
+            <a class="text-link" href="https://orcid.org/0000-0002-6598-283X" target="_blank" rel="noopener noreferrer">ORCID ↗</a>
           </div>
         </div>
         <figure class="hero-portrait">
@@ -272,95 +383,92 @@
           <figcaption>Investigación · análisis · curiosidad cotidiana</figcaption>
         </figure>
       </section>
-
-      <section class="projects" id="proyectos">
+      <section class="projects" id="proyectos" aria-labelledby="science-title">
         <div class="section-head">
-          <div><div class="kicker">Investigación · análisis de datos · ciencia aplicada</div><h2>Preguntas que me llevo<br>al laboratorio y de vuelta.</h2></div>
-          <p class="section-note">Proyectos científicos, docencia e intervención en contextos reales: investigar también es escuchar, probar ideas y explicar lo que vamos encontrando.</p>
+          <div><div class="kicker">Ciencia</div><h2 id="science-title">Preguntas que me llevo<br>al laboratorio y de vuelta.</h2></div>
+          <p class="section-note">Estudios, datos y síntesis de evidencia. Distintas maneras de entender el comportamiento humano, con un proceso que se pueda examinar y compartir.</p>
         </div>
+        <nav class="science-jumps" aria-label="Dentro de Ciencia"><a href="#estudios">Estudios</a><a href="#metodos">Datos y herramientas</a><a href="#sintesis">Revisiones</a><a href="#practica-cientifica">Cómo trabajo y contribuyo</a></nav>
+        <div class="science-group" id="estudios">
+          <div class="subsection-head"><h3>Del planteamiento al experimento.</h3><p>Preguntas concretas, experiencias reales y tareas que puedes explorar.</p></div>
           <div class="project-grid">
-          <article class="project">
-            <div class="project-icon" aria-hidden="true">↗</div>
-            <div class="project-label">Diseño del juego · En marcha</div>
-            <h3>¿Qué tiene un producto que puede hacernos daño?</h3>
-            <p>Un proyecto cualitativo e internacional para describir, desde la experiencia de las personas usuarias, qué rasgos del diseño del juego importan.</p>
-            <span class="plain-note">Taxonomía a partir de voces usuarias</span>
-          </article>
-          <article class="project data-focus">
-            <div class="project-icon" aria-hidden="true">∑</div>
-            <div class="project-label">Análisis de datos · Métodos</div>
-            <h3>De los datos a una pregunta mejor</h3>
-            <p>Diseño estudios y analizo datos para explorar patrones, contrastar hipótesis y explicar resultados sin perder sus matices.</p>
-            <span class="plain-note">R · Python · JASP · estadística · visualización</span>
-          </article>
-          <article class="project">
-            <div class="project-icon" aria-hidden="true">∿</div>
-            <div class="project-label">Mente y conducta · Investigación</div>
-            <h3>Compulsividad, craving y regulación emocional</h3>
-            <p>Cómo medimos la compulsividad entre actividades, qué relación guarda con las ganas de jugar y cuándo una intervención puede ayudar.</p>
-            <a class="text-link" href="https://doi.org/10.1007/s40429-025-00614-1" target="_blank" rel="noreferrer">Revisión y metaanálisis ↗</a>
-          </article>
-          <article class="project">
-            <div class="project-icon" aria-hidden="true">◎</div>
-            <div class="project-label">Ruleta simulada · Experimento</div>
-            <h3>Pequeñas casi victorias, grandes preguntas</h3>
-            <p>Con una ruleta simulada, contrastamos el papel de las casi victorias con las diferencias entre jugadores en sus apuestas y el deseo de seguir.</p>
-            <a class="text-link" href="https://hdl.handle.net/10481/115714" target="_blank" rel="noreferrer">Preprint del estudio ↗</a>
-            <button class="demo-open" id="open-roulette-demo" type="button" aria-haspopup="dialog" aria-controls="roulette-demo">Probar tres tiradas ↗</button>
-          </article>
-          <article class="project">
-            <div class="project-icon" aria-hidden="true">◉</div>
-            <div class="project-label">Tesis doctoral · Estudio prerregistrado</div>
-            <h3>Provocar el deseo de jugar para entenderlo</h3>
-            <p>En una parte central de mi tesis, inducimos craving en personas que jugaban a videojuegos o apostaban y observamos cómo cambiaban el deseo de jugar y la compulsividad momentánea.</p>
-            <a class="text-link" href="https://hdl.handle.net/10481/107411" target="_blank" rel="noreferrer">Leer el preprint <span aria-hidden="true">↗</span></a>
-          </article>
-          <article class="project">
-            <div class="project-icon" aria-hidden="true">⌛</div>
-            <div class="project-label">Seguimiento del craving · En curso</div>
-            <h3>¿Y qué ocurre durante la hora siguiente?</h3>
-            <p>Estudiamos cómo evoluciona el craving inducido durante una hora: un grupo ve un documental y otro realiza una tarea de memoria de trabajo 2-back.</p>
-            <button class="demo-open" id="open-nback-demo" type="button" aria-haspopup="dialog" aria-controls="nback-demo">Probar la 2-back (15 segundos) ↗</button>
-          </article>
-          <article class="project">
-            <div class="project-icon" aria-hidden="true">✳</div>
-            <div class="project-label">Ciencia abierta · Compromiso</div>
-            <h3>Abrir el proceso, no solo el resultado</h3>
-            <p>Mi compromiso es hacer una investigación que otros puedan examinar y aprovechar: métodos claros, prerregistros y materiales compartidos.</p>
-            <span class="plain-note">Transparencia · acceso abierto · reutilización</span>
-            <a class="text-link" href="https://digibug.ugr.es/browse?authority=5582&amp;type=author" target="_blank" rel="noreferrer">Ver trabajos en acceso abierto ↗</a>
-          </article>
-          <article class="project">
-            <div class="project-icon" aria-hidden="true">↔</div>
-            <div class="project-label">Fuera del laboratorio · Reducción de daños</div>
-            <h3>La psicología también ocurre en clubes y festivales</h3>
-            <p>Antes de la universidad trabajé en proyectos de bienestar y reducción de daños en contextos recreativos. Ahí aprendí a escuchar antes de intervenir.</p>
-            <span class="plain-note">Energy Control · Check!n</span>
-          </article>
-          <article class="project">
-            <div class="project-icon" aria-hidden="true">↗</div>
-            <div class="project-label">Aula · Docencia</div>
-            <h3>Ideas psicológicas que sirven para mirar mejor</h3>
-            <p>He enseñado Psicología General e Introducción a la Psicología en grados de Psicología y Terapia Ocupacional.</p>
-            <span class="plain-note">Docencia universitaria · Mentoría</span>
-          </article>
-          <article class="project">
-            <div class="project-icon" aria-hidden="true">◌</div>
-            <div class="project-label">Comunicación científica · TFM</div>
-            <h3>Cómo hacer que la ciencia encuentre a la sociedad</h3>
-            <p>Analicé cómo la Agencia Europea de Drogas comunica su actividad científica y su valor para la ciudadanía.</p>
-            <a class="text-link" href="https://hdl.handle.net/10481/85650" target="_blank" rel="noreferrer">Trabajo de máster en Digibug ↗</a>
-          </article>
-          <article class="project">
-            <div class="project-icon" aria-hidden="true">＋</div>
-            <div class="project-label">Prevención · Educación</div>
-            <h3>Psicología aplicada en centros educativos</h3>
-            <p>Diseñé, impartí y evalué un programa de prevención de alcohol dirigido a alumnado, familias y profesorado.</p>
-            <span class="plain-note">42.500 estudiantes · 700 familias · 200 centros</span>
-          </article>
+            <article class="project" id="proyecto-cualitativo">
+              <div class="project-label">Diseño del juego · Proyecto cualitativo internacional</div>
+              <h4>¿Qué tiene un producto que puede hacernos daño?</h4>
+              <span class="role-badge">Investigador principal · IP</span>
+              <p>Un proyecto para describir, desde la experiencia de las personas usuarias, qué rasgos del diseño del juego importan.</p>
+              <p class="leadership-note">He liderado el proyecto desde la idea inicial hasta la elaboración de los informes, en colaboración con el equipo.</p>
+              <span class="plain-note">Taxonomía a partir de voces usuarias</span>
+            </article>
+            <article class="project" id="proyecto-ruleta">
+              <div class="project-label">Ruleta simulada · Experimento</div>
+              <h4>Pequeñas casi victorias, grandes preguntas</h4>
+              <span class="role-badge">Investigador principal · IP</span>
+              <p>Con una ruleta simulada, contrastamos el papel de las casi victorias con las diferencias entre jugadores en sus apuestas y el deseo de seguir.</p>
+              <p class="leadership-note">He liderado el proyecto desde la idea inicial hasta la elaboración de los informes, en colaboración con el equipo.</p>
+              <div class="card-actions"><a class="text-link" href="https://hdl.handle.net/10481/115714" target="_blank" rel="noopener noreferrer">Leer el preprint <span aria-hidden="true">↗</span></a><button class="demo-open" id="open-roulette-demo" type="button" aria-haspopup="dialog" aria-controls="roulette-demo">Probar la tarea · 3 tiradas <span aria-hidden="true">↗</span></button></div>
+            </article>
+            <article class="project" id="craving-on-the-spot">
+              <div class="project-label">Tesis doctoral · Estudio prerregistrado</div>
+              <h4>Provocar el deseo de jugar para entenderlo</h4>
+              <p>En una parte central de mi tesis, inducimos craving en personas que jugaban a videojuegos o apostaban y observamos cómo cambiaban el deseo de jugar y la compulsividad momentánea.</p>
+              <p class="status-note">Craving on the Spot · Pendiente de decisión editorial</p>
+              <div class="card-actions"><a class="text-link" href="https://hdl.handle.net/10481/107411" target="_blank" rel="noopener noreferrer">Leer el preprint <span aria-hidden="true">↗</span></a></div>
+            </article>
+            <article class="project" id="seguimiento-craving">
+              <div class="project-label">Seguimiento del craving · En curso</div>
+              <h4>¿Y qué ocurre durante la hora siguiente?</h4>
+              <p>Estudiamos cómo evoluciona el craving inducido durante una hora: un grupo ve un documental y otro realiza una tarea de memoria de trabajo 2-back.</p>
+              <div class="card-actions"><button class="demo-open" id="open-nback-demo" type="button" aria-haspopup="dialog" aria-controls="nback-demo">Probar la tarea · 15 segundos <span aria-hidden="true">↗</span></button></div>
+            </article>
+          </div>
+        </div>
+        <div class="method-workbench" id="metodos">
+          <div><div class="kicker">Análisis de datos · Métodos</div><h3>De los datos a una pregunta mejor.</h3><p>Diseño estudios y analizo datos para explorar patrones, contrastar hipótesis y explicar resultados sin perder sus matices. La estadística y la visualización conectan las preguntas con lo que podemos aprender de ellas.</p><ul class="method-tags" aria-label="Herramientas de análisis"><li>R</li><li>Python</li><li>JASP</li><li>Estadística</li><li>Visualización</li></ul></div>
+          <aside class="journal-tool" aria-labelledby="journal-tool-title"><div class="kicker">Herramienta científica</div><h4 id="journal-tool-title">Buscador de revistas</h4><p>Un proyecto para explorar revistas académicas y orientar la búsqueda de dónde publicar. Antes de compartirlo, toca terminarlo, probarlo y explicar los límites de la información que ofrece.</p><p class="status-note">En desarrollo · Enlace público próximamente</p></aside>
+        </div>
+        <div class="science-group" id="sintesis">
+          <div class="subsection-head"><h3>Leer en conjunto para ver mejor.</h3><p>Dos trabajos distintos: cómo se relacionan emoción y craving, y qué sabemos sobre las intervenciones.</p></div>
+          <div class="project-grid">
+            <article class="project" id="revision-sistematica">
+              <div class="project-label">Revisión sistemática · 2023</div><h4>¿Por qué cuesta parar, incluso cuando lo estamos pasando bien?</h4>
+              <p>No solo actuamos precipitadamente cuando nos sentimos mal. Esta revisión estudia cómo se relacionan la impulsividad emocional, el craving y los problemas asociados a la conducta.</p>
+              <details class="research-explainer"><summary>Entender la revisión</summary><div class="explainer-content">
+                <h5>Qué preguntamos</h5><p>La impulsividad emocional es actuar precipitadamente bajo emociones intensas; el craving es un deseo intenso de realizar una actividad. «Estoy entusiasmado y sigo jugando» o «Estoy frustrado y busco jugar» ilustran conceptos, no resultados ni un test.</p>
+                <h5>Qué encontramos</h5><p>El craving mostró una relación especialmente consistente con la gravedad de los problemas. La impulsividad bajo emociones agradables también merece atención.</p>
+                <h5>Qué falta por saber</h5><p>Una asociación no demuestra qué causa qué. La evidencia se concentra en apuestas: no podemos extenderla sin más a todas las actividades.</p>
+                <details><summary>Cómo se hizo</summary><p>Nueve estudios aportaron información utilizable, con diez muestras; siete trataban sobre apuestas. El protocolo se prerregistró en PROSPERO.</p></details>
+              </div></details>
+              <div class="card-actions"><a class="text-link" href="https://doi.org/10.1007/s40429-023-00512-4" target="_blank" rel="noopener noreferrer">Leer la revisión sistemática <span aria-hidden="true">↗</span></a></div>
+              <p class="source-note">López-Guerrero et al. (2023), Current Addiction Reports. Artículo original en acceso abierto, con licencia <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>.</p>
+            </article>
+            <article class="project" id="metaanalisis">
+              <div class="project-label">Revisión y metaanálisis · 2025</div><h4>¿Qué ayuda a reducir la compulsividad?</h4>
+              <p>Reunimos estudios sobre intervenciones para reducir la compulsividad en distintas conductas. Hay resultados prometedores, pero también diferencias entre estudios y límites metodológicos que obligan a ser prudentes.</p>
+              <p>La pregunta no es solo si una intervención funciona, sino qué evidencia tenemos y hasta dónde permite llegar.</p>
+              <div class="card-actions"><a class="text-link" href="https://doi.org/10.1007/s40429-025-00614-1" target="_blank" rel="noopener noreferrer">Leer el artículo <span aria-hidden="true">↗</span></a><a class="text-link" href="#divulgacion-noticia">Ver la nota de prensa <span aria-hidden="true">↓</span></a></div>
+            </article>
+          </div>
+        </div>
+        <div class="research-practice" id="practica-cientifica">
+          <div><div class="kicker">Ciencia abierta · Compromiso</div><h3>Abrir el proceso, no solo el resultado.</h3><p>Mi compromiso es hacer una investigación que otros puedan examinar y aprovechar: métodos claros, prerregistros y materiales compartidos.</p>
+            <details class="open-evidence"><summary>Ejemplos de este compromiso</summary><ul class="evidence-list">
+              <li><a class="" href="https://www.crd.york.ac.uk/prospero/display_record.php?RecordID=386907" target="_blank" rel="noopener noreferrer">Ver el prerregistro de la revisión <span aria-hidden="true">↗</span></a><small>PROSPERO · Registro 386907 · Revisión de 2023.</small></li>
+              <li><a class="" href="https://doi.org/10.1007/s40429-023-00512-4" target="_blank" rel="noopener noreferrer">Consultar métodos y material suplementario <span aria-hidden="true">↗</span></a><small>Disponibles desde la página del artículo de 2023.</small></li>
+              <li><a class="" href="https://digibug.ugr.es/browse?authority=5582&amp;type=author" target="_blank" rel="noopener noreferrer">Leer trabajos en acceso abierto <span aria-hidden="true">↗</span></a><small>Publicaciones y preprints depositados en Digibug.</small></li>
+            </ul></details>
+          </div>
+          <aside class="scientific-service" aria-labelledby="scientific-service-title"><div class="kicker">Servicio a la comunidad científica</div><h3 id="scientific-service-title">Una mirada crítica, también para otros equipos.</h3><p>Contribuyo a la investigación mediante la revisión por pares: examinar métodos, resultados e interpretaciones y ofrecer comentarios constructivos.</p><details class="reviewer-more"><summary>Revistas para las que he revisado</summary><ul class="reviewer-journals" aria-label="Revistas para las que he realizado revisiones"><li>Journal of Behavioral Addictions</li><li>International Gambling Studies</li><li>Addictive Behaviors</li><li>PLOS ONE</li><li>Acta Psychologica</li><li>Addiction Science &amp; Clinical Practice</li><li>Addictive Behaviors Reports</li><li>Brain and Behavior</li><li>Comprehensive Psychiatry</li><li>Discover Psychology</li><li>International Journal of Mental Health Promotion</li><li>Journal of Psychopathology and Clinical Science</li><li>Substance Use and Addiction Journal</li><li>Substance Use &amp; Misuse</li></ul></details></aside>
         </div>
       </section>
-
+      <section class="outreach" id="divulgacion" aria-labelledby="outreach-title">
+        <div class="section-head"><div><div class="kicker">Divulgación</div><h2 id="outreach-title">La ciencia también<br>sale a pasear.</h2></div><p class="section-note">Contar lo que investigamos sin pedir un máster para entenderlo. A veces con una noticia; otras, eligiendo tu propia aventura.</p></div>
+        <div class="outreach-grid">
+          <article class="outreach-piece" id="divulgacion-noticia"><div class="outreach-meta">Mi investigación en medios · Canal UGR · 28 mayo 2025</div><h3>¿Qué sabemos de los tratamientos para las conductas adictivas?</h3><p>La Universidad de Granada contó los resultados de nuestro metaanálisis sobre tratamientos contra las adicciones al juego o al uso del móvil. Una entrada al estudio, con sus posibilidades y sus límites.</p><a class="text-link" href="https://canal.ugr.es/noticia/tratamientos-contra-las-adicciones-al-juego-o-al-uso-del-movil/" target="_blank" rel="noopener noreferrer">Leer en Canal UGR <span aria-hidden="true">↗</span></a><p class="source-note">Nota de prensa institucional sobre el <a href="#metaanalisis">metaanálisis de 2025</a>.</p></article>
+          <article class="outreach-piece"><div class="outreach-meta">Hilo propio · Bluesky · Junio 2025</div><h3>«Sé que no debería, pero no puedo parar».</h3><p>Un hilo sobre compulsividad y craving en formato «Elige tu propia aventura». Tú decides por dónde acercarte a las preguntas de mi tesis.</p><a class="text-link" href="https://bsky.app/profile/joselopguerre.bsky.social/post/3lrrynqyuok2a" target="_blank" rel="noopener noreferrer">Elegir mi aventura <span aria-hidden="true">↗</span></a><details class="adventure-routes"><summary>O ir directamente a una de las tres rutas</summary><ol><li><a class="" href="https://bsky.app/profile/joselopguerre.bsky.social/post/3lrrzemja2s2a" target="_blank" rel="noopener noreferrer">¿Cómo se mide la compulsividad? <span aria-hidden="true">↗</span></a></li><li><a class="" href="https://bsky.app/profile/joselopguerre.bsky.social/post/3lrs2ajnnck2a" target="_blank" rel="noopener noreferrer">El craving como motor <span aria-hidden="true">↗</span></a></li><li><a class="" href="https://bsky.app/profile/joselopguerre.bsky.social/post/3lrs2pnrubs2a" target="_blank" rel="noopener noreferrer">¿Qué puede ayudar? <span aria-hidden="true">↗</span></a></li></ol></details></article>
+        </div>
+        <p class="academic-note">La comunicación científica también forma parte de mi formación: en mi TFM analicé cómo la Agencia Europea de Drogas comunica su actividad científica y su valor para la ciudadanía. <a class="" href="https://hdl.handle.net/10481/85650" target="_blank" rel="noopener noreferrer">Leer el trabajo de máster <span aria-hidden="true">↗</span></a></p>
+      </section>
       <section class="about" id="sobre-mi">
         <div class="wrap about-grid">
           <div><div class="kicker">El hilo conductor</div><h2>Especialista por oficio.<br>Curioso por naturaleza.</h2></div>
@@ -371,7 +479,6 @@
           </div>
         </div>
       </section>
-
       <section class="skills" aria-labelledby="skills-title">
         <div class="section-head">
           <div><div class="kicker">Lo que pongo en juego</div><h2 id="skills-title">Competencias que se cruzan.</h2></div>
@@ -380,11 +487,10 @@
         <div class="skill-grid">
           <div class="skill"><b>Preguntar y medir</b><span>Diseño experimental, escalas, encuestas y revisiones sistemáticas; LimeSurvey y JATOS.</span></div>
           <div class="skill"><b>Entender contextos</b><span>Métodos cualitativos, entrevistas, evaluación de necesidades y reducción de daños.</span></div>
-          <div class="skill"><b>Analizar datos</b><span>Estadística con R, Python y JASP; visualización y comunicación clara de resultados.</span></div>
+          <div class="skill"><b>Analizar datos</b><span>Contraste de hipótesis, exploración de patrones, visualización y comunicación clara de resultados.</span></div>
           <div class="skill"><b>Enseñar y coordinar</b><span>Docencia, mentoría, colaboración internacional y gestión de proyectos.</span></div>
         </div>
       </section>
-
       <section class="experience" id="trayectoria">
         <div class="section-head">
           <div><div class="kicker">Experiencia y formación</div><h2>Distintas maneras de<br>acercarme a las personas.</h2></div>
@@ -394,90 +500,53 @@
         <div class="experience-row"><div class="experience-year">2016–2017</div><div><h3>Gestión de proyectos · Check!n Lisboa</h3><p>Reducción de riesgos y trabajo educativo en contextos recreativos, desde una perspectiva cercana a quienes participan en ellos.</p></div></div>
         <div class="experience-row"><div class="experience-year">2009–2016</div><div><h3>Educación y prevención · Fundación Alcohol y Sociedad</h3><p>Gestión, docencia y evaluación de programas escolares sobre alcohol; alcance acumulado de 42.500 estudiantes, 700 familias y 200 centros educativos.</p></div></div>
         <div class="experience-row"><div class="experience-year">2008–2009</div><div><h3>Orientación educativa · Universidad de Granada</h3><p>Apoyo a profesorado y alumnado en Moodle, software educativo y métodos de investigación.</p></div></div>
+        <div class="experience-row"><div class="experience-year">Docencia</div><div><h3>Psicología en el aula</h3><p>He enseñado Psicología General e Introducción a la Psicología en grados de Psicología y Terapia Ocupacional.</p></div></div>
         <div class="experience-row"><div class="experience-year">Formación</div><div><h3>Psicología, intervención social y comunicación científica</h3><p>Licenciatura en Psicología · Máster en Psicología de la Intervención Social · Máster en Información y Comunicación Científica. Universidades de Murcia y Granada. Inglés C1 · Portugués B2.</p></div></div>
 
         <div class="mobility">
           <div class="mobility-intro">
-            <div class="kicker">Estancias de investigación</div>
-            <h3>Tres lugares para cambiar de perspectiva.</h3>
-            <p>Dos estancias en Países Bajos y una en Suecia, trabajando con otros departamentos y otras formas de hacer preguntas.</p>
+            <div class="kicker">Estancias · Investigación y formación</div>
+            <h3>Cuatro lugares para cambiar de perspectiva.</h3>
+            <p>Tres estancias de investigación en Países Bajos y Suecia, y una experiencia Erasmus+ de formación en Italia. Departamentos, perspectivas y maneras de aprender.</p>
           </div>
           <div class="mobility-grid">
             <article class="mobility-card"><span class="mobility-year">2022 · Países Bajos</span><h4>Heerlen</h4><p>Faculty of Psychology<br>Open Universiteit</p></article>
+            <article class="mobility-card"><span class="mobility-year">2024 · Italia · Formación Erasmus+</span><h4>Chieti</h4><p>Fostering Critical Thinking in Psychological Science<br>Università G. d’Annunzio Chieti-Pescara</p></article>
             <article class="mobility-card"><span class="mobility-year">2025 · Países Bajos</span><h4>Ámsterdam</h4><p>Department of Psychiatry<br>Amsterdam UMC / University of Amsterdam</p></article>
             <article class="mobility-card"><span class="mobility-year">2026 · Suecia</span><h4>Gotemburgo</h4><p>Department of Psychology (Organisation, Health and Addiction)<br>University of Gothenburg</p></article>
           </div>
         </div>
-        <aside class="scientific-service" aria-labelledby="scientific-service-title">
-          <div class="kicker">Revisión por pares</div>
-          <h3 id="scientific-service-title">Servicio a la comunidad científica</h3>
-          <p>También contribuyo a la investigación revisando el trabajo de otros equipos. La revisión por pares es una forma de aportar una mirada crítica y constructiva sobre los métodos, los resultados y su interpretación.</p>
-          <p>He revisado manuscritos para revistas como:</p>
-          <ul class="reviewer-journals" aria-label="Selección de revistas">
-            <li>Journal of Behavioral Addictions</li>
-            <li>International Gambling Studies</li>
-            <li>Addictive Behaviors</li>
-            <li>PLOS ONE</li>
-          </ul>
-          <details class="reviewer-more">
-            <summary>Otras revistas</summary>
-            <ul class="reviewer-journals" aria-label="Otras revistas para las que he realizado revisiones">
-              <li>Acta Psychologica</li>
-              <li>Addiction Science &amp; Clinical Practice</li>
-              <li>Addictive Behaviors Reports</li>
-              <li>Brain and Behavior</li>
-              <li>Comprehensive Psychiatry</li>
-              <li>Discover Psychology</li>
-              <li>International Journal of Mental Health Promotion</li>
-              <li>Journal of Psychopathology and Clinical Science</li>
-              <li>Substance Use and Addiction Journal</li>
-              <li>Substance Use &amp; Misuse</li>
-            </ul>
-          </details>
-        </aside>
       </section>
-
-      <section class="conference-section" id="congresos">
-        <div class="section-head">
-          <div><div class="kicker">Congresos · Formación presencial</div><h2>Ideas con<br>kilómetros detrás.</h2></div>
-          <p>Dos recorridos en un mismo mapa: los congresos a los que fui y una selección de cursos presenciales fuera de casa.</p>
-        </div>
-        <div class="map-filters" role="group" aria-label="Categoría del mapa" hidden>
-          <button class="map-filter is-active" type="button" data-map-mode="congresos" aria-pressed="true">Congresos <span>12 ciudades</span></button>
-          <button class="map-filter" type="button" data-map-mode="formacion" aria-pressed="false">Formación presencial <span>4 ciudades</span></button>
-        </div>
-        <div class="conference-map-shell">
-          <div id="conference-map" class="conference-map" role="region" aria-label="Mapa interactivo de congresos y formación presencial"><p class="map-fallback">Si el mapa no carga, los lugares y actividades están en las listas de abajo.</p></div>
-          <p class="map-caption">Pulsa un punto para ver la actividad y el año. Puedes ampliar el mapa para separar ciudades cercanas. Cartografía © OpenStreetMap contributors.</p>
-        </div>
-        <div class="map-list-group is-current" data-map-list="congresos">
-          <div class="conference-list-head"><h3>Congresos presenciales</h3><p>Solo aquellos a los que asistí.</p></div>
-          <div class="conference-list">
-            <details class="conference-city"><summary><span>Estambul</span><small>1 congreso</small></summary><ul><li><time>2026</time> 11th International Conference on Behavioral Addictions (ICBA)</li></ul></details>
-            <details class="conference-city"><summary><span>Helsinki</span><small>1 congreso</small></summary><ul><li><time>2026</time> Current Advances in Gambling Research (CAGR)</li></ul></details>
-            <details class="conference-city"><summary><span>Barcelona</span><small>1 congreso</small></summary><ul><li><time>2025</time> V Jornadas de la Sociedad Española de Juego y Drogas (SEJyD)</li></ul></details>
-            <details class="conference-city"><summary><span>Nantes</span><small>1 congreso</small></summary><ul><li><time>2025</time> 10th International Conference on Behavioral Addictions (ICBA)</li></ul></details>
-            <details class="conference-city"><summary><span>Lisboa</span><small>6 congresos</small></summary><ul><li><time>2024</time> Lisbon Addictions</li><li><time>2022</time> Lisbon Addictions</li><li><time>2018</time> 9ª Conferencia de la European Society for Prevention Research (EUSPR)</li><li><time>2017</time> Lisbon Addictions</li><li><time>2016</time> XXIX Encontro das Taipas</li><li><time>2015</time> Club Health Lisbon</li></ul></details>
-            <details class="conference-city"><summary><span>Gibraltar</span><small>1 congreso</small></summary><ul><li><time>2024</time> 9th International Conference on Behavioral Addictions (ICBA)</li></ul></details>
-            <details class="conference-city"><summary><span>Granada</span><small>2 congresos</small></summary><ul><li><time>2023</time> IV Jornadas de la Sociedad Española de Juego y Drogas (SEJyD)</li><li><time>2023</time> Jornadas Socidrogalcohol</li></ul></details>
-            <details class="conference-city"><summary><span>Berlín</span><small>2 congresos</small></summary><ul><li><time>2019</time> Nights Conference</li><li><time>2016</time> Nights 2016 · Stadt Nach Acht</li></ul></details>
-            <details class="conference-city"><summary><span>Gante</span><small>1 congreso</small></summary><ul><li><time>2019</time> 10ª Conferencia de la European Society for Prevention Research (EUSPR)</li></ul></details>
-            <details class="conference-city"><summary><span>Ámsterdam</span><small>1 congreso</small></summary><ul><li><time>2019</time> Club Health</li></ul></details>
-            <details class="conference-city"><summary><span>Bruselas</span><small>1 congreso</small></summary><ul><li><time>2018</time> Nights Conference</li></ul></details>
-            <details class="conference-city"><summary><span>Dublín</span><small>1 congreso</small></summary><ul><li><time>2017</time> Club Health</li></ul></details>
-          </div>
-        </div>
-        <div class="map-list-group" data-map-list="formacion">
-          <div class="conference-list-head"><h3>Formación presencial</h3><p>Una selección de cursos fuera de mi ciudad.</p></div>
-          <div class="conference-list">
-            <details class="conference-city"><summary><span>Ámsterdam</span><small>1 curso</small></summary><ul><li><time>2025</time> JASP Workshop Week · University of Amsterdam</li></ul></details>
-            <details class="conference-city"><summary><span>Chieti</span><small>1 curso</small></summary><ul><li><time>2024</time> BIP Fostering Critical Thinking in Psychological Science · Università G. d’Annunzio Chieti-Pescara</li></ul></details>
-            <details class="conference-city"><summary><span>Gibraltar</span><small>1 curso</small></summary><ul><li><time>2024</time> PhD Summer School: Publishing in Addiction Science · University of Gibraltar</li></ul></details>
-            <details class="conference-city"><summary><span>Bruselas</span><small>1 curso</small></summary><ul><li><time>2018</time> d-HealthyLife · co-creación y cambio de conducta (EIT Health Campus)</li></ul></details>
-          </div>
+      <section class="passport" id="formacion" aria-labelledby="passport-title">
+        <div class="section-head"><div><div class="kicker">Formación continua</div><h2 id="passport-title">Pasaporte de aprendizaje.</h2></div><p class="section-note">Una selección de cursos que conectan datos, investigación, intervención y comunicación. Sin separar aulas y pantallas: lo importante es lo que permiten aprender.</p></div>
+        <div class="passport-filters" role="group" aria-label="Filtrar cursos por área" hidden><button class="passport-filter" type="button" data-filter="all" aria-pressed="true">Todos</button><button class="passport-filter" type="button" data-filter="datos" aria-pressed="false">Datos y métodos</button><button class="passport-filter" type="button" data-filter="investigacion" aria-pressed="false">Investigación</button><button class="passport-filter" type="button" data-filter="intervencion" aria-pressed="false">Intervención y docencia</button><button class="passport-filter" type="button" data-filter="comunicacion" aria-pressed="false">Comunicación</button></div>
+        <p class="passport-count" id="passport-count" role="status" aria-live="polite">16 cursos seleccionados · Abre un sello para saber más.</p>
+        <div class="passport-grid">
+          <details class="passport-stamp" data-track="datos"><summary><span class="stamp-top"><span class="stamp-mark" aria-hidden="true">DM</span><time class="stamp-year" datetime="2025">2025</time></span><span class="stamp-title">JASP Workshop Week</span><span class="stamp-category">Datos y métodos</span><span class="stamp-toggle">Ver curso</span></summary><div class="stamp-body"><p><strong>Curso</strong><br>The JASP workshop week</p><p><strong>Institución</strong><br>University of Amsterdam</p><p><strong>Qué aporta</strong><br>Estadística y análisis de datos con JASP.</p></div></details>
+          <details class="passport-stamp" data-track="comunicacion"><summary><span class="stamp-top"><span class="stamp-mark" aria-hidden="true">CO</span><time class="stamp-year" datetime="2025">2025</time></span><span class="stamp-title">Divulgación científica</span><span class="stamp-category">Comunicación</span><span class="stamp-toggle">Ver curso</span></summary><div class="stamp-body"><p><strong>Curso</strong><br>Divulgación científica</p><p><strong>Institución</strong><br>Universidad de Granada</p><p><strong>Qué aporta</strong><br>Comunicar investigación de forma comprensible fuera del ámbito académico.</p></div></details>
+          <details class="passport-stamp" data-track="investigacion"><summary><span class="stamp-top"><span class="stamp-mark" aria-hidden="true">IN</span><time class="stamp-year" datetime="2024">2024</time></span><span class="stamp-title">Publicar en ciencia de las adicciones</span><span class="stamp-category">Investigación</span><span class="stamp-toggle">Ver curso</span></summary><div class="stamp-body"><p><strong>Curso</strong><br>Publishing in addiction science · PhD summer school</p><p><strong>Institución</strong><br>University of Gibraltar</p><p><strong>Qué aporta</strong><br>Formación sobre publicación científica en el campo de las adicciones.</p></div></details>
+          <details class="passport-stamp" data-track="datos"><summary><span class="stamp-top"><span class="stamp-mark" aria-hidden="true">DM</span><time class="stamp-year" datetime="2023">2023</time></span><span class="stamp-title">R y RStudio</span><span class="stamp-category">Datos y métodos</span><span class="stamp-toggle">Ver curso</span></summary><div class="stamp-body"><p><strong>Curso</strong><br>R y RStudio</p><p><strong>Institución</strong><br>EventEX</p><p><strong>Qué aporta</strong><br>Programación y trabajo con datos en R y RStudio.</p></div></details>
+          <details class="passport-stamp" data-track="datos"><summary><span class="stamp-top"><span class="stamp-mark" aria-hidden="true">DM</span><time class="stamp-year" datetime="2023">2023</time></span><span class="stamp-title">Análisis multivariante y machine learning</span><span class="stamp-category">Datos y métodos</span><span class="stamp-toggle">Ver curso</span></summary><div class="stamp-body"><p><strong>Curso</strong><br>Técnicas de análisis multivariante y machine learning con R</p><p><strong>Institución</strong><br>Universidad de Granada</p><p><strong>Qué aporta</strong><br>Métodos para explorar relaciones entre múltiples variables y modelos con R.</p></div></details>
+          <details class="passport-stamp" data-track="datos"><summary><span class="stamp-top"><span class="stamp-mark" aria-hidden="true">DM</span><time class="stamp-year" datetime="2023">2023</time></span><span class="stamp-title">Python para analizar datos</span><span class="stamp-category">Datos y métodos</span><span class="stamp-toggle">Ver curso</span></summary><div class="stamp-body"><p><strong>Curso</strong><br>Python como herramienta para el análisis de datos</p><p><strong>Institución</strong><br>Universidad de Granada</p><p><strong>Qué aporta</strong><br>Herramientas de programación para el tratamiento y análisis de datos.</p></div></details>
+          <details class="passport-stamp" data-track="datos"><summary><span class="stamp-top"><span class="stamp-mark" aria-hidden="true">DM</span><time class="stamp-year" datetime="2023">2023</time></span><span class="stamp-title">Web scraping con Python</span><span class="stamp-category">Datos y métodos</span><span class="stamp-toggle">Ver curso</span></summary><div class="stamp-body"><p><strong>Curso</strong><br>Web scraping con Python: extracción automatizada de datos desde sitios web</p><p><strong>Institución</strong><br>Universidad de Granada</p><p><strong>Qué aporta</strong><br>Extracción automatizada de información publicada en la web.</p></div></details>
+          <details class="passport-stamp" data-track="investigacion"><summary><span class="stamp-top"><span class="stamp-mark" aria-hidden="true">IN</span><time class="stamp-year" datetime="2023">2023</time></span><span class="stamp-title">Herramientas para investigar</span><span class="stamp-category">Investigación</span><span class="stamp-toggle">Ver curso</span></summary><div class="stamp-body"><p><strong>Curso</strong><br>Herramientas para el desarrollo de la investigación</p><p><strong>Institución</strong><br>Universidad de Granada</p><p><strong>Qué aporta</strong><br>Recursos para apoyar el proceso de investigación.</p></div></details>
+          <details class="passport-stamp" data-track="intervencion"><summary><span class="stamp-top"><span class="stamp-mark" aria-hidden="true">ID</span><time class="stamp-year" datetime="2023">2023</time></span><span class="stamp-title">Iniciación a la docencia universitaria</span><span class="stamp-category">Intervención y docencia</span><span class="stamp-toggle">Ver curso</span></summary><div class="stamp-body"><p><strong>Curso</strong><br>Iniciación a la docencia universitaria</p><p><strong>Institución</strong><br>Universidad de Granada</p><p><strong>Qué aporta</strong><br>Formación pedagógica para la enseñanza en la universidad.</p></div></details>
+          <details class="passport-stamp" data-track="datos"><summary><span class="stamp-top"><span class="stamp-mark" aria-hidden="true">DM</span><time class="stamp-year" datetime="2022">2022</time></span><span class="stamp-title">From Data to Insights</span><span class="stamp-category">Datos y métodos</span><span class="stamp-toggle">Ver curso</span></summary><div class="stamp-body"><p><strong>Curso</strong><br>From Data to Insights with Google Cloud</p><p><strong>Institución</strong><br>Google Cloud · Coursera</p><p><strong>Qué aporta</strong><br>Un programa especializado sobre análisis y aprovechamiento de datos en Google Cloud.</p></div></details>
+          <details class="passport-stamp" data-track="intervencion"><summary><span class="stamp-top"><span class="stamp-mark" aria-hidden="true">ID</span><time class="stamp-year" datetime="2021">2021</time></span><span class="stamp-title">Gamificación</span><span class="stamp-category">Intervención y docencia</span><span class="stamp-toggle">Ver curso</span></summary><div class="stamp-body"><p><strong>Curso</strong><br>Introducción a la gamificación a través de casos prácticos</p><p><strong>Institución</strong><br>Universitat Oberta de Catalunya</p><p><strong>Qué aporta</strong><br>Uso de dinámicas de juego en contextos de aprendizaje.</p></div></details>
+          <details class="passport-stamp" data-track="investigacion"><summary><span class="stamp-top"><span class="stamp-mark" aria-hidden="true">IN</span><time class="stamp-year" datetime="2019">2019</time></span><span class="stamp-title">Grupos focales</span><span class="stamp-category">Investigación</span><span class="stamp-toggle">Ver curso</span></summary><div class="stamp-body"><p><strong>Curso</strong><br>Cómo realizar grupos focales</p><p><strong>Institución</strong><br>Fundación Index</p><p><strong>Qué aporta</strong><br>Una técnica cualitativa para explorar experiencias y perspectivas compartidas.</p></div></details>
+          <details class="passport-stamp" data-track="intervencion"><summary><span class="stamp-top"><span class="stamp-mark" aria-hidden="true">ID</span><time class="stamp-year" datetime="2019">2019</time></span><span class="stamp-title">Perspectiva de género</span><span class="stamp-category">Intervención y docencia</span><span class="stamp-toggle">Ver curso</span></summary><div class="stamp-body"><p><strong>Curso</strong><br>Incorporación de la perspectiva de género en proyectos sociales</p><p><strong>Institución</strong><br>Federación Enlace</p><p><strong>Qué aporta</strong><br>Incorporar la perspectiva de género al trabajo con proyectos sociales.</p></div></details>
+          <details class="passport-stamp" data-track="intervencion"><summary><span class="stamp-top"><span class="stamp-mark" aria-hidden="true">ID</span><time class="stamp-year" datetime="2018">2018</time></span><span class="stamp-title">Co-creación y salud digital</span><span class="stamp-category">Intervención y docencia</span><span class="stamp-toggle">Ver curso</span></summary><div class="stamp-body"><p><strong>Curso</strong><br>d-HealthyLife · Métodos de co-creación para desarrollar herramientas de salud digital</p><p><strong>Institución</strong><br>EIT Health Campus · Bruselas</p><p><strong>Qué aporta</strong><br>Diseñar herramientas de salud digital con la participación de sus destinatarios.</p></div></details>
+          <details class="passport-stamp" data-track="comunicacion"><summary><span class="stamp-top"><span class="stamp-mark" aria-hidden="true">CO</span><time class="stamp-year" datetime="2018">2018</time></span><span class="stamp-title">Redes sociales, investigación y docencia</span><span class="stamp-category">Comunicación</span><span class="stamp-toggle">Ver curso</span></summary><div class="stamp-body"><p><strong>Curso</strong><br>Redes Sociales para Investigación y Docencia</p><p><strong>Institución</strong><br>Universidad Politécnica de Madrid</p><p><strong>Qué aporta</strong><br>Redes sociales como espacios para compartir conocimiento y enseñar.</p></div></details>
+          <details class="passport-stamp" data-track="intervencion"><summary><span class="stamp-top"><span class="stamp-mark" aria-hidden="true">ID</span><time class="stamp-year" datetime="2006">2006</time></span><span class="stamp-title">Especialista en drogodependencias</span><span class="stamp-category">Intervención y docencia</span><span class="stamp-toggle">Ver curso</span></summary><div class="stamp-body"><p><strong>Curso</strong><br>Especialista Universitario en Drogodependencias</p><p><strong>Institución</strong><br>Universidad de Murcia · Colectivo La Huertecica</p><p><strong>Qué aporta</strong><br>Formación especializada en drogodependencias e intervención.</p></div></details>
         </div>
       </section>
-
+      <section class="conference-section" id="congresos" aria-labelledby="conference-title">
+        <div class="section-head"><div><div class="kicker">Congresos y conferencias</div><h2 id="conference-title">Ideas que me han<br>llevado a otras ciudades.</h2></div><p class="section-note">Encuentros a los que he asistido: para compartir trabajo, escuchar otras preguntas y volver con alguna idea nueva.</p></div>
+        <p class="map-hint">Selecciona un punto para ver los encuentros de esa ciudad. También puedes consultarlos en el listado de abajo.</p>
+        <div class="conference-map" id="conference-map" role="region" aria-label="Mapa de ciudades de congresos"><p class="map-fallback">El mapa necesita conexión. Todos los encuentros están disponibles en el listado por ciudades.</p></div>
+        <div class="conference-list-head"><h3>El recorrido, ciudad a ciudad.</h3><p>12 ciudades · 19 encuentros</p></div>
+        <div class="conference-list"><details class="conference-city"><summary><span>Estambul</span><small>1 encuentro</small></summary><ul><li><time datetime="2026">2026</time> · 11th International Conference on Behavioral Addictions (ICBA)</li></ul></details><details class="conference-city"><summary><span>Helsinki</span><small>1 encuentro</small></summary><ul><li><time datetime="2026">2026</time> · Current Advances in Gambling Research (CAGR)</li></ul></details><details class="conference-city"><summary><span>Barcelona</span><small>1 encuentro</small></summary><ul><li><time datetime="2025">2025</time> · V Jornadas de la Sociedad Española de Juego y Drogas (SEJyD)</li></ul></details><details class="conference-city"><summary><span>Nantes</span><small>1 encuentro</small></summary><ul><li><time datetime="2025">2025</time> · 10th International Conference on Behavioral Addictions (ICBA)</li></ul></details><details class="conference-city"><summary><span>Lisboa</span><small>6 encuentros</small></summary><ul><li><time datetime="2024">2024</time> · Lisbon Addictions</li><li><time datetime="2022">2022</time> · Lisbon Addictions</li><li><time datetime="2018">2018</time> · 9ª Conferencia de la European Society for Prevention Research (EUSPR)</li><li><time datetime="2017">2017</time> · Lisbon Addictions</li><li><time datetime="2016">2016</time> · XXIX Encontro das Taipas</li><li><time datetime="2015">2015</time> · Club Health Lisbon</li></ul></details><details class="conference-city"><summary><span>Gibraltar</span><small>1 encuentro</small></summary><ul><li><time datetime="2024">2024</time> · 9th International Conference on Behavioral Addictions (ICBA)</li></ul></details><details class="conference-city"><summary><span>Granada</span><small>2 encuentros</small></summary><ul><li><time datetime="2023">2023</time> · IV Jornadas de la Sociedad Española de Juego y Drogas (SEJyD)</li><li><time datetime="2023">2023</time> · Jornadas Socidrogalcohol</li></ul></details><details class="conference-city"><summary><span>Berlín</span><small>2 encuentros</small></summary><ul><li><time datetime="2019">2019</time> · Nights Conference</li><li><time datetime="2016">2016</time> · Nights 2016 · Stadt Nach Acht</li></ul></details><details class="conference-city"><summary><span>Gante</span><small>1 encuentro</small></summary><ul><li><time datetime="2019">2019</time> · 10ª Conferencia de la European Society for Prevention Research (EUSPR)</li></ul></details><details class="conference-city"><summary><span>Ámsterdam</span><small>1 encuentro</small></summary><ul><li><time datetime="2019">2019</time> · Club Health</li></ul></details><details class="conference-city"><summary><span>Bruselas</span><small>1 encuentro</small></summary><ul><li><time datetime="2018">2018</time> · Nights Conference</li></ul></details><details class="conference-city"><summary><span>Dublín</span><small>1 encuentro</small></summary><ul><li><time datetime="2017">2017</time> · Club Health</li></ul></details></div>
+      </section>
       <section class="projects" id="curiosidades">
         <div class="section-head">
           <div><div class="kicker">Proyectos personales · herramientas · ideas</div><h2>Curiosidades en marcha.</h2></div>
@@ -489,59 +558,50 @@
             <div class="project-label">Costa · Luz · Andalucía</div>
             <h3>Faros de Andalucía</h3>
             <p>Un cuaderno interactivo para explorar doce faros, sus cadencias luminosas, mapas y curiosidades.</p>
-            <a class="text-link" href="https://faros-andalucia.joselogue.chatgpt.site/" target="_blank" rel="noreferrer">Encender los faros ↗</a>
+            <a class="text-link" aria-label="Abrir Faros de Andalucía" href="https://faros-andalucia.joselogue.chatgpt.site/" target="_blank" rel="noopener noreferrer">Abrir la app <span aria-hidden="true">↗</span></a>
           </article>
           <article class="project">
             <div class="project-icon" aria-hidden="true">♨</div>
             <div class="project-label">Cocina · Recetas</div>
             <h3>La app de las recetas</h3>
             <p>Un proyecto personal que lleva la curiosidad también a la cocina.</p>
-            <a class="text-link" href="https://mi-cocina.joselogue.chatgpt.site/" target="_blank" rel="noreferrer">Abrir la app de recetas ↗</a>
+            <a class="text-link" aria-label="Abrir La app de las recetas" href="https://mi-cocina.joselogue.chatgpt.site/" target="_blank" rel="noopener noreferrer">Abrir la app <span aria-hidden="true">↗</span></a>
           </article>
           <article class="project">
             <div class="project-icon" aria-hidden="true">▧</div>
             <div class="project-label">Arte · Color</div>
             <h3>Rothko</h3>
             <p>Un experimento digital inspirado en la obra y los campos de color de Mark Rothko.</p>
-            <a class="text-link" href="https://resonancia.joselogue.chatgpt.site/" target="_blank" rel="noreferrer">Abrir Resonancia ↗</a>
+            <a class="text-link" aria-label="Abrir Rothko" href="https://resonancia.joselogue.chatgpt.site/" target="_blank" rel="noopener noreferrer">Abrir la app <span aria-hidden="true">↗</span></a>
           </article>
           <article class="project">
             <div class="project-icon" aria-hidden="true">⚔</div>
             <div class="project-label">Arte · Videojuego</div>
             <h3>Pincel de Hierro</h3>
             <p>Un juego de lucha en el que grandes artistas convierten sus obras en ataques. Historia del arte, humor y duelos de un minuto.</p>
-            <a class="text-link" href="https://pincel-de-hierro.joselogue.chatgpt.site/" target="_blank" rel="noreferrer">Entrar al museo ↗</a>
-          </article>
-          <article class="project">
-            <div class="project-icon" aria-hidden="true">⌕</div>
-            <div class="project-label">Investigación · Revistas</div>
-            <h3>Buscador de revistas</h3>
-            <p>Una herramienta para explorar revistas académicas. El proyecto está alojado en OSF.</p>
-            <span class="plain-note">Proyecto en OSF · enlace directo pendiente</span>
+            <a class="text-link" aria-label="Abrir Pincel de Hierro" href="https://pincel-de-hierro.joselogue.chatgpt.site/" target="_blank" rel="noopener noreferrer">Abrir la app <span aria-hidden="true">↗</span></a>
           </article>
           <article class="project">
             <div class="project-icon" aria-hidden="true">⬡</div>
             <div class="project-label">Impresión 3D · En familia</div>
             <h3>NaDimension</h3>
             <p>Un proyecto que comparto con mi sobrina Nadia alrededor de una impresora 3D: imaginar, probar y aprender haciendo.</p>
-            <a class="text-link" href="https://nadimension.joselogue.chatgpt.site/" target="_blank" rel="noreferrer">Explorar NaDimension ↗</a>
+            <a class="text-link" aria-label="Abrir NaDimension" href="https://nadimension.joselogue.chatgpt.site/" target="_blank" rel="noopener noreferrer">Abrir la app <span aria-hidden="true">↗</span></a>
           </article>
         </div>
       </section>
-
       <section class="closing" id="contacto">
         <p>¿Una pregunta, una colaboración o una idea rara? Por aquí se empieza.</p>
         <div class="closing-links">
           <a class="text-link" href="mailto:fran.jose.guerrero@gmail.com">Escríbeme ↗</a>
-          <a class="text-link" href="https://orcid.org/0000-0002-6598-283X" target="_blank" rel="noreferrer">ORCID ↗</a>
-          <a class="text-link" href="https://www.researchgate.net/profile/Jose-Lopez-Guerrero" target="_blank" rel="noreferrer">ResearchGate ↗</a>
-          <a class="text-link" href="https://www.linkedin.com/in/jose-l%C3%B3pez-guerrero-12574231/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-          <a class="text-link" href="https://scholar.google.es/citations?user=Dj1fPPUAAAAJ&amp;hl=es" target="_blank" rel="noreferrer">Google Scholar ↗</a>
-          <a class="text-link" href="https://produccioncientifica.ugr.es/investigadores/454481/detalle" target="_blank" rel="noreferrer">Perfil de investigación UGR ↗</a>
-          <a class="text-link" href="https://digibug.ugr.es/browse?authority=5582&amp;type=author" target="_blank" rel="noreferrer">Publicaciones en Digibug ↗</a>
+          <a class="text-link" href="https://orcid.org/0000-0002-6598-283X" target="_blank" rel="noopener noreferrer">ORCID ↗</a>
+          <a class="text-link" href="https://www.researchgate.net/profile/Jose-Lopez-Guerrero" target="_blank" rel="noopener noreferrer">ResearchGate ↗</a>
+          <a class="text-link" href="https://www.linkedin.com/in/jose-l%C3%B3pez-guerrero-12574231/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a class="text-link" href="https://scholar.google.es/citations?user=Dj1fPPUAAAAJ&amp;hl=es" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a>
+          <a class="text-link" href="https://produccioncientifica.ugr.es/investigadores/454481/detalle" target="_blank" rel="noopener noreferrer">Perfil de investigación UGR ↗</a>
+          <a class="text-link" href="https://digibug.ugr.es/browse?authority=5582&amp;type=author" target="_blank" rel="noopener noreferrer">Publicaciones en Digibug ↗</a>
         </div>
-      </section>
-    </main>
+      </section></main>
     <footer class="footer">Jose López Guerrero · Psicología, datos y comportamiento humano</footer>
   </div>
   <dialog class="roulette-dialog" id="roulette-demo" aria-labelledby="roulette-demo-title">
@@ -774,7 +834,7 @@
         phase = "done";
         digit.textContent = "✓";
         progress.textContent = "Muestra completada";
-        result.textContent = "Acertaste " + correct + " de " + sequence.length + " decisiones. Esta muestra no es una evaluación.";
+        result.textContent = "Muestra completada. Así funciona la comparación con el dígito de dos posiciones antes. Esta demo no evalúa tu rendimiento.";
         startButton.disabled = false;
         startButton.textContent = "Repetir muestra";
         matchButton.disabled = true;
@@ -838,86 +898,53 @@
   <script>
   (() => {
     if (!window.L) return;
-    const datasets = {
-      congresos: [{"name":"Estambul","lat":41.0082,"lng":28.9784,"events":[["2026","11th International Conference on Behavioral Addictions (ICBA)"]]},{"name":"Helsinki","lat":60.1699,"lng":24.9384,"events":[["2026","Current Advances in Gambling Research (CAGR)"]]},{"name":"Barcelona","lat":41.3874,"lng":2.1686,"events":[["2025","V Jornadas de la Sociedad Española de Juego y Drogas (SEJyD)"]]},{"name":"Nantes","lat":47.2184,"lng":-1.5536,"events":[["2025","10th International Conference on Behavioral Addictions (ICBA)"]]},{"name":"Lisboa","lat":38.7223,"lng":-9.1393,"events":[["2024","Lisbon Addictions"],["2022","Lisbon Addictions"],["2018","9ª Conferencia de la European Society for Prevention Research (EUSPR)"],["2017","Lisbon Addictions"],["2016","XXIX Encontro das Taipas"],["2015","Club Health Lisbon"]]},{"name":"Gibraltar","lat":36.1408,"lng":-5.3536,"events":[["2024","9th International Conference on Behavioral Addictions (ICBA)"]]},{"name":"Granada","lat":37.1773,"lng":-3.5986,"events":[["2023","IV Jornadas de la Sociedad Española de Juego y Drogas (SEJyD)"],["2023","Jornadas Socidrogalcohol"]]},{"name":"Berlín","lat":52.52,"lng":13.405,"events":[["2019","Nights Conference"],["2016","Nights 2016 · Stadt Nach Acht"]]},{"name":"Gante","lat":51.0543,"lng":3.7174,"events":[["2019","10ª Conferencia de la European Society for Prevention Research (EUSPR)"]]},{"name":"Ámsterdam","lat":52.3676,"lng":4.9041,"events":[["2019","Club Health"]]},{"name":"Bruselas","lat":50.8503,"lng":4.3517,"events":[["2018","Nights Conference"]]},{"name":"Dublín","lat":53.3498,"lng":-6.2603,"events":[["2017","Club Health"]]}],
-      formacion: [{"name":"Ámsterdam","lat":52.3676,"lng":4.9041,"events":[["2025","JASP Workshop Week · University of Amsterdam"]]},{"name":"Chieti","lat":42.351,"lng":14.167,"events":[["2024","BIP Fostering Critical Thinking in Psychological Science · Università G. d’Annunzio Chieti-Pescara"]]},{"name":"Gibraltar","lat":36.1408,"lng":-5.3536,"events":[["2024","PhD Summer School: Publishing in Addiction Science · University of Gibraltar"]]},{"name":"Bruselas","lat":50.8503,"lng":4.3517,"events":[["2018","d-HealthyLife · co-creación y cambio de conducta (EIT Health Campus)"]]}]
-    };
-    const section = document.getElementById("congresos");
+    const cities = [{"name":"Estambul","lat":41.0082,"lng":28.9784,"events":[["2026","11th International Conference on Behavioral Addictions (ICBA)"]]},{"name":"Helsinki","lat":60.1699,"lng":24.9384,"events":[["2026","Current Advances in Gambling Research (CAGR)"]]},{"name":"Barcelona","lat":41.3874,"lng":2.1686,"events":[["2025","V Jornadas de la Sociedad Española de Juego y Drogas (SEJyD)"]]},{"name":"Nantes","lat":47.2184,"lng":-1.5536,"events":[["2025","10th International Conference on Behavioral Addictions (ICBA)"]]},{"name":"Lisboa","lat":38.7223,"lng":-9.1393,"events":[["2024","Lisbon Addictions"],["2022","Lisbon Addictions"],["2018","9ª Conferencia de la European Society for Prevention Research (EUSPR)"],["2017","Lisbon Addictions"],["2016","XXIX Encontro das Taipas"],["2015","Club Health Lisbon"]]},{"name":"Gibraltar","lat":36.1408,"lng":-5.3536,"events":[["2024","9th International Conference on Behavioral Addictions (ICBA)"]]},{"name":"Granada","lat":37.1773,"lng":-3.5986,"events":[["2023","IV Jornadas de la Sociedad Española de Juego y Drogas (SEJyD)"],["2023","Jornadas Socidrogalcohol"]]},{"name":"Berlín","lat":52.52,"lng":13.405,"events":[["2019","Nights Conference"],["2016","Nights 2016 · Stadt Nach Acht"]]},{"name":"Gante","lat":51.0543,"lng":3.7174,"events":[["2019","10ª Conferencia de la European Society for Prevention Research (EUSPR)"]]},{"name":"Ámsterdam","lat":52.3676,"lng":4.9041,"events":[["2019","Club Health"]]},{"name":"Bruselas","lat":50.8503,"lng":4.3517,"events":[["2018","Nights Conference"]]},{"name":"Dublín","lat":53.3498,"lng":-6.2603,"events":[["2017","Club Health"]]}];
     const container = document.getElementById("conference-map");
-    if (!section || !container) return;
+    if (!container) return;
     const fallback = container.querySelector(".map-fallback");
     if (fallback) fallback.remove();
     const map = L.map(container, { scrollWheelZoom: false });
-    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      maxZoom: 18,
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
-    const markers = L.layerGroup().addTo(map);
-    const filters = section.querySelector(".map-filters");
-    section.classList.add("map-enhanced");
-    filters.hidden = false;
-    function showMode(mode) {
-      markers.clearLayers();
-      const isTraining = mode === "formacion";
-      const icon = L.divIcon({
-        className: "map-dot " + (isTraining ? "map-dot--training" : "map-dot--congress"),
-        html: '<span class="map-dot-core" aria-hidden="true"></span>',
-        iconSize: [20, 20],
-        iconAnchor: [10, 10]
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {maxZoom:18, attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
+    const icon = L.divIcon({className:"map-dot map-dot--congress", html:'<span class="map-dot-core" aria-hidden="true"></span>',iconSize:[20,20],iconAnchor:[10,10]});
+    cities.forEach(city => {
+      const popup = document.createElement("div");
+      popup.className = "map-popup";
+      const heading = document.createElement("h3");
+      heading.textContent = city.name;
+      popup.appendChild(heading);
+      const list = document.createElement("ul");
+      city.events.forEach(([year,name]) => {
+        const item = document.createElement("li");
+        const time = document.createElement("time");
+        time.textContent = year;
+        item.appendChild(time);
+        item.appendChild(document.createTextNode(" · " + name));
+        list.appendChild(item);
       });
-      datasets[mode].forEach(city => {
-        const popup = document.createElement("div");
-        popup.className = "map-popup";
-        const heading = document.createElement("h3");
-        heading.textContent = city.name;
-        popup.appendChild(heading);
-        const kind = document.createElement("p");
-        kind.className = "map-popup-kind";
-        kind.textContent = isTraining ? "Formación presencial" : "Congresos presenciales";
-        popup.appendChild(kind);
-        const list = document.createElement("ul");
-        city.events.forEach(([year, name]) => {
-          const item = document.createElement("li");
-          const time = document.createElement("time");
-          time.textContent = year;
-          item.appendChild(time);
-          item.appendChild(document.createTextNode(" · " + name));
-          list.appendChild(item);
-        });
-        popup.appendChild(list);
-        L.marker([city.lat, city.lng], {
-          icon,
-          keyboard: true,
-          title: city.name,
-          alt: (isTraining ? "Formación en " : "Congresos en ") + city.name
-        }).addTo(markers).bindPopup(popup, { maxWidth: 320 });
-      });
-      section.querySelectorAll(".map-filter").forEach(button => {
-        const active = button.dataset.mapMode === mode;
-        button.classList.toggle("is-active", active);
-        button.setAttribute("aria-pressed", String(active));
-      });
-      section.querySelectorAll(".map-list-group").forEach(group => {
-        group.classList.toggle("is-current", group.dataset.mapList === mode);
-      });
-      map.fitBounds(L.latLngBounds(datasets[mode].map(city => [city.lat, city.lng])), {
-        padding: [28, 28],
-        maxZoom: 5
-      });
-    }
-    filters.addEventListener("click", event => {
-      const button = event.target.closest("[data-map-mode]");
-      if (button) showMode(button.dataset.mapMode);
+      popup.appendChild(list);
+      L.marker([city.lat,city.lng], {icon,keyboard:true,title:city.name,alt:"Congresos en "+city.name}).addTo(map).bindPopup(popup,{maxWidth:320});
     });
-    showMode("congresos");
+    map.fitBounds(L.latLngBounds(cities.map(c=>[c.lat,c.lng])),{padding:[28,28],maxZoom:5});
+  })();
+  </script>
+  <script>
+  (() => {
+    const section = document.getElementById("formacion");
+    const filters = section.querySelector(".passport-filters");
+    const courses = [...section.querySelectorAll(".passport-stamp")];
+    const count = document.getElementById("passport-count");
+    filters.hidden = false;
+    filters.addEventListener("click", event => {
+      const button = event.target.closest("button[data-filter]");
+      if (!button) return;
+      const track = button.dataset.filter;
+      courses.forEach(course => { course.hidden = track !== "all" && course.dataset.track !== track; });
+      filters.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed",String(b === button)));
+      const visible = courses.filter(c=>!c.hidden).length;
+      count.textContent = visible + (visible === 1 ? " curso seleccionado" : " cursos seleccionados") + " · Abre un sello para saber más.";
+    });
   })();
   </script>
 </body>
 </html>
 
-
-
-
-
-
- 
