@@ -298,6 +298,8 @@
     .evidence-list li { margin-bottom: 12px; }
     .evidence-list a { color: var(--green); font-weight: 700; text-underline-offset: 3px; }
     .evidence-list small { display: block; margin-top: 3px; }
+    .open-evidence .resource-note { margin-top: 14px; font-size: .76rem; }
+    .resource-note a { text-underline-offset: 3px; }
     .outreach { padding: 65px 0 75px; border-top: 1px solid var(--line); }
     .outreach-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; align-items: start; }
     .outreach-piece { min-width: 0; padding: 5px 0 5px 22px; border-left: 3px solid var(--orange); }
@@ -359,6 +361,34 @@
       .closing-links { gap: 12px 17px; }
     }
 
+
+    /* Competencias: seis fichas y niveles de idiomas, sin porcentajes de dominio. */
+    .skill-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: 14px; }
+    .skill { min-width: 0; }
+    .skill:nth-child(5) { border-color: var(--orange); }
+    .skill:nth-child(6) { border-color: var(--green); }
+    .language-row + .language-row { margin-top: 18px; }
+    .language-heading { display: flex; align-items: center; gap: 9px; }
+    .language-flag { flex: 0 0 28px; display: block; width: 28px; height: 19px; border: 1px solid #142b3b22; border-radius: 2px; overflow: hidden; }
+    .skill .language-name { display: inline; color: var(--ink); font-size: .83rem; font-weight: 600; }
+    .language-level { margin-left: auto; color: var(--green); font-size: .83rem; }
+    .cefr-scale { position: relative; margin-top: 9px; padding-top: 13px; }
+    .cefr-track { position: absolute; left: 8.3333%; right: 8.3333%; top: 3px; height: 3px; background: #b8cdd5; border-radius: 4px; }
+    .cefr-fill { display: block; height: 100%; background: var(--green); border-radius: inherit; }
+    .language-en .cefr-fill { width: 80%; }
+    .language-pt .cefr-fill { width: 60%; }
+    .cefr-point { position: absolute; top: 0; width: 10px; height: 10px; border: 2px solid var(--green); border-radius: 50%; background: var(--card); transform: translateX(-50%); }
+    .language-en .cefr-point { left: 75%; }
+    .language-pt .cefr-point { left: 58.3333%; }
+    .cefr-labels { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); margin: 0; padding: 0; list-style: none; }
+    .cefr-labels li { color: var(--muted); font-size: .62rem; line-height: 1.4; text-align: center; }
+    .cefr-labels .is-level { color: var(--green); font-weight: 800; }
+    .skill .language-caption { margin-top: 12px; font-size: .65rem; color: var(--muted); }
+    .team-badge { border-color: #acbccb; background: #eef2f8; color: #39546b; }
+    .experience-row p.research-team-note { margin-top: 10px; font-size: .85rem; color: var(--green); }
+    @media (max-width: 800px) { .skill-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 540px) { .skill-grid { grid-template-columns: minmax(0, 1fr); gap: 10px; } }
+
   </style>
 </head>
 <body>
@@ -398,7 +428,7 @@
               <span class="role-badge">Investigador principal · IP</span>
               <p>Un proyecto para describir, desde la experiencia de las personas usuarias, qué rasgos del diseño del juego importan.</p>
               <p class="leadership-note">He liderado el proyecto desde la idea inicial hasta la elaboración de los informes, en colaboración con el equipo.</p>
-              <span class="plain-note">Taxonomía a partir de voces usuarias</span>
+              <p class="status-note">Póster presentado en Estambul · 2026</p><div class="card-actions"><a class="text-link" href="https://www.researchgate.net/publication/414214189_Mapping_harmful_gambling-product_design_through_lived_experience_Protocol_for_a_user-led_taxonomy_and_harm-pathway_map" target="_blank" rel="noopener noreferrer">Ver el póster <span aria-hidden="true">↗</span></a></div>
             </article>
             <article class="project" id="proyecto-ruleta">
               <div class="project-label">Ruleta simulada · Experimento</div>
@@ -411,6 +441,7 @@
             <article class="project" id="craving-on-the-spot">
               <div class="project-label">Tesis doctoral · Estudio prerregistrado</div>
               <h4>Provocar el deseo de jugar para entenderlo</h4>
+              <span class="role-badge team-badge">Miembro del equipo · GBrain</span>
               <p>En una parte central de mi tesis, inducimos craving en personas que jugaban a videojuegos o apostaban y observamos cómo cambiaban el deseo de jugar y la compulsividad momentánea.</p>
               <p class="status-note">Craving on the Spot · Pendiente de decisión editorial</p>
               <div class="card-actions"><a class="text-link" href="https://hdl.handle.net/10481/107411" target="_blank" rel="noopener noreferrer">Leer el preprint <span aria-hidden="true">↗</span></a></div>
@@ -418,6 +449,7 @@
             <article class="project" id="seguimiento-craving">
               <div class="project-label">Seguimiento del craving · En curso</div>
               <h4>¿Y qué ocurre durante la hora siguiente?</h4>
+              <span class="role-badge team-badge">Miembro del equipo · GBrain</span>
               <p>Estudiamos cómo evoluciona el craving inducido durante una hora: un grupo ve un documental y otro realiza una tarea de memoria de trabajo 2-back.</p>
               <div class="card-actions"><button class="demo-open" id="open-nback-demo" type="button" aria-haspopup="dialog" aria-controls="nback-demo">Probar la tarea · 15 segundos <span aria-hidden="true">↗</span></button></div>
             </article>
@@ -443,20 +475,29 @@
               <p class="source-note">López-Guerrero et al. (2023), Current Addiction Reports. Artículo original en acceso abierto, con licencia <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>.</p>
             </article>
             <article class="project" id="metaanalisis">
-              <div class="project-label">Revisión y metaanálisis · 2025</div><h4>¿Qué ayuda a reducir la compulsividad?</h4>
-              <p>Reunimos estudios sobre intervenciones para reducir la compulsividad en distintas conductas. Hay resultados prometedores, pero también diferencias entre estudios y límites metodológicos que obligan a ser prudentes.</p>
-              <p>La pregunta no es solo si una intervención funciona, sino qué evidencia tenemos y hasta dónde permite llegar.</p>
-              <div class="card-actions"><a class="text-link" href="https://doi.org/10.1007/s40429-025-00614-1" target="_blank" rel="noopener noreferrer">Leer el artículo <span aria-hidden="true">↗</span></a><a class="text-link" href="#divulgacion-noticia">Ver la nota de prensa <span aria-hidden="true">↓</span></a></div>
+              <div class="project-label">Revisión y metaanálisis · 2025 · Prerregistrado</div><h4>¿Qué ayuda a reducir la compulsividad?</h4>
+              <p>Cuando alguien siente que sigue jugando o usando una actividad a pesar de sus consecuencias, ¿qué puede ayudar a recuperar el control? Revisamos técnicas dirigidas a reducir ese componente compulsivo, no todos los tratamientos disponibles.</p>
+              <details class="research-explainer" id="meta-explainer"><summary>Entender el metaanálisis</summary><div class="explainer-content">
+                <h5>Qué preguntamos</h5><p>¿Qué aporta una técnica concreta, más allá del resto de la terapia? Estudiamos exposición y entrenamiento para modificar respuestas aprendidas, atención plena y estimulación cerebral no invasiva en adicciones comportamentales y conductas relacionadas.</p>
+                <h5>Qué encontramos</h5><p>En conjunto aparecieron mejoras en medidas de gravedad, craving o reacción a señales asociadas a la actividad. Pero los estudios variaban mucho y había indicios de resultados sobredimensionados en estudios pequeños. El potencial es prometedor; la certeza, limitada.</p>
+                <h5>Qué falta por saber</h5><p>No podemos declarar una técnica ganadora ni concluir que todas funcionan igual. Mejorar después de una intervención no demuestra por sí solo que la mejora se deba a ella. Hacen falta comparaciones adecuadas, estudios más sólidos y prácticas transparentes.</p>
+                <details><summary>Cómo se hizo</summary><p>El protocolo se prerregistró en PROSPERO (490637). Buscamos en cuatro bases de datos y revisamos citas; actualizamos la búsqueda hasta noviembre de 2024. Separamos tres análisis: comparación final con control (9 estudios), diferencias en el cambio antes-después (7 de esos 9), y cambio sin un comparador que aislase la técnica (15 estudios). No son tres grupos que puedan sumarse.</p><p>Evaluamos el riesgo de sesgo y posibles efectos de publicación selectiva. Las decisiones, el código en R y las desviaciones respecto al protocolo se documentan en los materiales enlazados por el artículo.</p></details>
+              </div></details>
+              <div class="card-actions"><a class="text-link" href="https://doi.org/10.1007/s40429-025-00614-1" target="_blank" rel="noopener noreferrer">Leer el artículo <span aria-hidden="true">↗</span></a><a class="text-link" href="https://hdl.handle.net/10481/107409" target="_blank" rel="noopener noreferrer">Leer en Digibug <span aria-hidden="true">↗</span></a><a class="text-link" href="https://osf.io/5jg8v/?view_only=a4f708d0f4f542c4ab6e6983ad25d190" target="_blank" rel="noopener noreferrer">Ver materiales <span aria-hidden="true">↗</span></a><a class="text-link" href="#divulgacion-noticia">Ver la nota de prensa <span aria-hidden="true">↓</span></a></div>
+              <p class="source-note">López-Guerrero et al. (2025), Current Addiction Reports, 12, 9. Síntesis divulgativa, no recomendación clínica. La edición de la revista puede requerir acceso institucional; la UGR enlaza una copia en Digibug. Materiales: enlace OSF citado en el artículo.</p>
             </article>
           </div>
         </div>
         <div class="research-practice" id="practica-cientifica">
           <div><div class="kicker">Ciencia abierta · Compromiso</div><h3>Abrir el proceso, no solo el resultado.</h3><p>Mi compromiso es hacer una investigación que otros puedan examinar y aprovechar: métodos claros, prerregistros y materiales compartidos.</p>
+            <p>Compartir también es dejar rastro de cómo se tomaron las decisiones: qué se planeó, qué se analizó y qué cambió respecto al plan inicial.</p>
             <details class="open-evidence"><summary>Ejemplos de este compromiso</summary><ul class="evidence-list">
               <li><a class="" href="https://www.crd.york.ac.uk/prospero/display_record.php?RecordID=386907" target="_blank" rel="noopener noreferrer">Ver el prerregistro de la revisión <span aria-hidden="true">↗</span></a><small>PROSPERO · Registro 386907 · Revisión de 2023.</small></li>
               <li><a class="" href="https://doi.org/10.1007/s40429-023-00512-4" target="_blank" rel="noopener noreferrer">Consultar métodos y material suplementario <span aria-hidden="true">↗</span></a><small>Disponibles desde la página del artículo de 2023.</small></li>
+              <li><a class="" href="https://www.crd.york.ac.uk/prospero/display_record.php?RecordID=490637" target="_blank" rel="noopener noreferrer">Ver el prerregistro del metaanálisis <span aria-hidden="true">↗</span></a><small>PROSPERO · Registro 490637 · Metaanálisis de 2025.</small></li>
+              <li><a class="" href="https://osf.io/5jg8v/?view_only=a4f708d0f4f542c4ab6e6983ad25d190" target="_blank" rel="noopener noreferrer">Consultar materiales y código del metaanálisis <span aria-hidden="true">↗</span></a><small>Según el artículo: búsqueda, selección y extracción de estudios, código en R, desviaciones del protocolo y análisis complementarios. Carpeta OSF enlazada en la publicación; su disponibilidad depende del servicio.</small></li>
               <li><a class="" href="https://digibug.ugr.es/browse?authority=5582&amp;type=author" target="_blank" rel="noopener noreferrer">Leer trabajos en acceso abierto <span aria-hidden="true">↗</span></a><small>Publicaciones y preprints depositados en Digibug.</small></li>
-            </ul></details>
+            </ul><p class="resource-note">Cada recurso conserva sus condiciones de uso. Compartir código y materiales no implica que todos los datos individuales estén abiertos. Si OSF no carga, su enlace también figura en la <a href="https://doi.org/10.1007/s40429-025-00614-1" target="_blank" rel="noopener noreferrer">ficha editorial del metaanálisis</a>.</p></details>
           </div>
           <aside class="scientific-service" aria-labelledby="scientific-service-title"><div class="kicker">Servicio a la comunidad científica</div><h3 id="scientific-service-title">Una mirada crítica, también para otros equipos.</h3><p>Contribuyo a la investigación mediante la revisión por pares: examinar métodos, resultados e interpretaciones y ofrecer comentarios constructivos.</p><details class="reviewer-more"><summary>Revistas para las que he revisado</summary><ul class="reviewer-journals" aria-label="Revistas para las que he realizado revisiones"><li>Journal of Behavioral Addictions</li><li>International Gambling Studies</li><li>Addictive Behaviors</li><li>PLOS ONE</li><li>Acta Psychologica</li><li>Addiction Science &amp; Clinical Practice</li><li>Addictive Behaviors Reports</li><li>Brain and Behavior</li><li>Comprehensive Psychiatry</li><li>Discover Psychology</li><li>International Journal of Mental Health Promotion</li><li>Journal of Psychopathology and Clinical Science</li><li>Substance Use and Addiction Journal</li><li>Substance Use &amp; Misuse</li></ul></details></aside>
         </div>
@@ -479,7 +520,7 @@
           </div>
         </div>
       </section>
-      <section class="skills" aria-labelledby="skills-title">
+      <section class="skills" id="competencias" aria-labelledby="skills-title">
         <div class="section-head">
           <div><div class="kicker">Lo que pongo en juego</div><h2 id="skills-title">Competencias que se cruzan.</h2></div>
           <p class="section-note">Una caja de herramientas metodológica y humana.</p>
@@ -488,20 +529,22 @@
           <div class="skill"><b>Preguntar y medir</b><span>Diseño experimental, escalas, encuestas y revisiones sistemáticas; LimeSurvey y JATOS.</span></div>
           <div class="skill"><b>Entender contextos</b><span>Métodos cualitativos, entrevistas, evaluación de necesidades y reducción de daños.</span></div>
           <div class="skill"><b>Analizar datos</b><span>Contraste de hipótesis, exploración de patrones, visualización y comunicación clara de resultados.</span></div>
-          <div class="skill"><b>Enseñar y coordinar</b><span>Docencia, mentoría, colaboración internacional y gestión de proyectos.</span></div>
+          <div class="skill"><b>Enseñar</b><span>Docencia universitaria en Psicología y Terapia Ocupacional; también enseñanza no formal en secundaria con Fundación Alcohol y Sociedad.</span></div>
+          <div class="skill"><b>Liderar y coordinar proyectos</b><span>De la idea a los informes: planificación, coordinación de equipos y evaluación. Experiencia en investigación y proyectos de intervención.</span></div>
+          <div class="skill skill-languages"><b>Idiomas</b><div class="language-row language-en" role="img" aria-label="Inglés: nivel C1 en la escala MCER de A1 a C2"><div class="language-heading"><svg class="language-flag" viewBox="0 0 60 40" aria-hidden="true" focusable="false"><rect width="60" height="40" fill="#012169"/><path d="M0 0L60 40M60 0L0 40" stroke="#fff" stroke-width="9"/><path d="M0 0L60 40M60 0L0 40" stroke="#c8102e" stroke-width="3"/><path d="M30 0V40M0 20H60" stroke="#fff" stroke-width="14"/><path d="M30 0V40M0 20H60" stroke="#c8102e" stroke-width="8"/></svg><span class="language-name">Inglés</span><strong class="language-level">C1</strong></div><div class="cefr-scale" aria-hidden="true"><div class="cefr-track"><i class="cefr-fill"></i></div><i class="cefr-point"></i><ol class="cefr-labels"><li>A1</li><li>A2</li><li>B1</li><li>B2</li><li class="is-level">C1</li><li>C2</li></ol></div></div><div class="language-row language-pt" role="img" aria-label="Portugués: nivel B2 en la escala MCER de A1 a C2"><div class="language-heading"><svg class="language-flag" viewBox="0 0 60 40" aria-hidden="true" focusable="false"><rect width="60" height="40" fill="#ff0000"/><rect width="24" height="40" fill="#006600"/><g transform="translate(24 20)"><circle r="9" fill="none" stroke="#ffdf00" stroke-width="1.5"/><ellipse rx="4" ry="9" fill="none" stroke="#ffdf00" stroke-width="1"/><path d="M-9 0H9M-8-4H8M-8 4H8" fill="none" stroke="#ffdf00" stroke-width="1"/><path d="M-5-6H5V2Q5 7 0 8Q-5 7-5 2Z" fill="#fff" stroke="#c8102e" stroke-width="2"/><g fill="#003399"><rect x="-1" y="-4" width="2" height="2"/><rect x="-3" y="-1" width="2" height="2"/><rect x="1" y="-1" width="2" height="2"/><rect x="-1" y="0" width="2" height="2"/><rect x="-1" y="3" width="2" height="2"/></g></g></svg><span class="language-name">Portugués</span><strong class="language-level">B2</strong></div><div class="cefr-scale" aria-hidden="true"><div class="cefr-track"><i class="cefr-fill"></i></div><i class="cefr-point"></i><ol class="cefr-labels"><li>A1</li><li>A2</li><li>B1</li><li class="is-level">B2</li><li>C1</li><li>C2</li></ol></div></div><span class="language-caption">Escala MCER · A1–C2</span></div>
         </div>
       </section>
       <section class="experience" id="trayectoria">
         <div class="section-head">
           <div><div class="kicker">Experiencia y formación</div><h2>Distintas maneras de<br>acercarme a las personas.</h2></div>
         </div>
-        <div class="experience-row"><div class="experience-year">Investigación</div><div><h3>Psicología Experimental · Universidad de Granada</h3><p>Proyectos cuantitativos y cualitativos sobre compulsividad, craving y juego; investigación compartida con equipos de Países Bajos y Suecia.</p></div></div>
+        <div class="experience-row"><div class="experience-year">Investigación</div><div><h3>Psicología Experimental · Universidad de Granada</h3><p>Proyectos cuantitativos y cualitativos sobre compulsividad, craving y juego; investigación compartida con equipos de Países Bajos y Suecia.</p><p class="research-team-note">He participado en GBrain3 y GBrain4; mi ayuda FPI estuvo vinculada a GBrain3.</p></div></div>
         <div class="experience-row"><div class="experience-year">2017–2022</div><div><h3>Gestión de proyectos · Energy Control Andalucía</h3><p>Reducción de daños, promoción de salud y bienestar sexual, análisis de necesidades, coordinación de actividades y voluntariado, comunicación digital y trabajo con jóvenes y comunidades migrantes.</p></div></div>
         <div class="experience-row"><div class="experience-year">2016–2017</div><div><h3>Gestión de proyectos · Check!n Lisboa</h3><p>Reducción de riesgos y trabajo educativo en contextos recreativos, desde una perspectiva cercana a quienes participan en ellos.</p></div></div>
         <div class="experience-row"><div class="experience-year">2009–2016</div><div><h3>Educación y prevención · Fundación Alcohol y Sociedad</h3><p>Gestión, docencia y evaluación de programas escolares sobre alcohol; alcance acumulado de 42.500 estudiantes, 700 familias y 200 centros educativos.</p></div></div>
         <div class="experience-row"><div class="experience-year">2008–2009</div><div><h3>Orientación educativa · Universidad de Granada</h3><p>Apoyo a profesorado y alumnado en Moodle, software educativo y métodos de investigación.</p></div></div>
         <div class="experience-row"><div class="experience-year">Docencia</div><div><h3>Psicología en el aula</h3><p>He enseñado Psicología General e Introducción a la Psicología en grados de Psicología y Terapia Ocupacional.</p></div></div>
-        <div class="experience-row"><div class="experience-year">Formación</div><div><h3>Psicología, intervención social y comunicación científica</h3><p>Licenciatura en Psicología · Máster en Psicología de la Intervención Social · Máster en Información y Comunicación Científica. Universidades de Murcia y Granada. Inglés C1 · Portugués B2.</p></div></div>
+        <div class="experience-row"><div class="experience-year">Formación</div><div><h3>Psicología, intervención social y comunicación científica</h3><p>Licenciatura en Psicología · Máster en Psicología de la Intervención Social · Máster en Información y Comunicación Científica. Universidades de Murcia y Granada.</p></div></div>
 
         <div class="mobility">
           <div class="mobility-intro">
@@ -947,4 +990,3 @@
   </script>
 </body>
 </html>
-
